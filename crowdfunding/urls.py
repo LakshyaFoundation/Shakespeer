@@ -11,10 +11,10 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
-    url(r'^auth/$', TemplateView.as_view(template_name="backup.html")),
+    url(r'^auth/$', TemplateView.as_view(template_name="login.html")),
     url(r'^auth/register$', 'auth.views.register'),
     url(r'^auth/create_user$', 'auth.views.create_user'),
     url(r'^auth/login$', 'auth.views.login'),
-    url(r'^auth/_login$', 'auth.views._login')
+    url(r'^auth/_login$', 'auth.views._login'),
     url(r'^project/$', TemplateView.as_view(template_name="project.html")),
 )
