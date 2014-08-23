@@ -5,4 +5,4 @@ def login(request):
 	if request.method=="POST":
 		username=request.POST['username']
 		password=request.POST['password']
-	return render(request,'login/index.html')
+	return render(request,'index.html')
