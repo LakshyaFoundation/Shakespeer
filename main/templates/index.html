@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=1160">
 
 	<link href="{{STATIC_URL}}style.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="{{STATIC_URL}}facebookimages.css" media="all" rel="stylesheet" type="text/css" />
 	<!--[if lte IE 9]><link href="static/ie.css" media="all" rel="stylesheet" type="text/css" /><![endif]-->
 
 	<script src="{{STATIC_URL}}modernizr.js" type="text/javascript"></script>
@@ -415,17 +416,49 @@
 
 		</div>
 	</div>
-
+<style>
+	.thumb-avatar{
+		height: 119px;
+		width:119px;
+	}
+</style>
 	<div class="grid">
 
-		<h1 class="faq"><div class="number">4</div> Inscrição</h1>
-
-<!-- <ul class="progresso">
-<li class="etapa1 etapa-ativa">Dados pessoais</li>
-<li class="etapa2">Dados do projeto</li>
-<li class="etapa3">Descrição do projeto</li>
-<li class="etapa4">Dados da equipe</li>
-</ul> -->
+		<div class="home-discover-friends">
+        <div class="container_12">
+            <div class="row-friends">
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&oe=54677AEC&__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&oe=54618C6F&__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&oe=545FD6D2&__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&oe=545EAC17&__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="row-friends row-connect-fb">
+                <a class="thumb-avatar t-first" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/c3.0.873.873/s320x320/1898190_783732268321603_491538253_n.jpg?oh=ce5c94fe7d6848b23e675e20107471eb&oe=5466376B&__gda__=1415556080_e57971b78b6465e3b744720e1df38432" alt="$USER_NAME"></a>
+                <div class="connect-fb">
+                    <p class="rs description">Discover great projects with your friends!</p>
+                    <a href="#" class="btn btn-fb">Connect With Facebook</a>
+                </div>
+                <a class="thumb-avatar t-last" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/p320x320/10580065_685702968181454_7782856146988379956_n.jpg?oh=a43903f22201e2a4e12b206e3e3d9565&oe=546032BF&__gda__=1417073923_abf1eef9b809bb711c3c38b077eecea1" alt="$USER_NAME"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="row-friends">
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c0.26.320.320/p320x320/10353708_871184919577086_9079608711029265426_n.jpg?oh=fa64d6d2c3d618a85fd94455bfdd1925&oe=5472EAC0&__gda__=1417043524_7b97d280b87fef95fe0e7a46e7b1f82a" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/c53.0.320.320/p320x320/10432472_856112734416532_1913607109894733023_n.jpg?oh=54e21ea0eb01786940f06b8baac0f02c&oe=5473EBB4&__gda__=1416131956_98afeed2e2497cfd9e36f5c068b251ca" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/p320x320/1780875_10203234704613041_451710884_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c2.244.716.716/s320x320/10151407_10154071905680094_7739168467546246970_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/v/t1.0-1/c61.61.763.763/s320x320/1010827_369757983147611_1514816732_n.jpg?oh=3c4b47204cb1e6544bbdee30df091e46&oe=5480F016&__gda__=1417727463_d0d7373f60e24cdfa0bf3aa41291f971" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/c0.115.539.539/s320x320/10527845_10152371511803198_7459944990676271384_n.jpg" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.0.320.320/p320x320/10406909_10204438248825916_5991301317221892936_n.jpg?oh=c1a2cf44739c10a78499088ca045cf6f&oe=545D548D&__gda__=1415970895_23da1e1c08e976609f8436112e8abde5" alt="$USER_NAME"></a>
+                <a class="thumb-avatar" href="#"><img src="https://scontent-b-kul.xx.fbcdn.net/hprofile-xpa1/v/l/t1.0-1/c55.0.320.320/p320x320/994322_667480089948358_574806173_n.jpg?oh=c3a652a79fddb331b82b11bfa87a97f1&oe=547EB10E" alt="$USER_NAME"></a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
