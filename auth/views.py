@@ -1,23 +1,36 @@
 from django.shortcuts import render
 from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
-def login(request):
+def __login(request):
 	return render(request,'login.html')
 
 def _login(request):
-    if request.method != 'POST':
-        raise Http404('Only POSTs are allowed')
-    try:
-        m = Member.objects.get(username=request.POST['username'])
-        if m.password == request.POST['password']:
-            request.session['member_id'] = m.id
-            return HttpResponseRedirect('auth/login')
-    except Member.DoesNotExist:
-        return HttpResponse("Your username and password didn't match.")
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+		if user.is_active:
+			login(request, user)
+			messages.info(request,'Welcome '+user.username)
+			return HttpResponseRedirect('/project')
+		else:
+			messages.info(request,'Your account is inactive. Contact webmaster')
+			return HttpResponseRedirect('/login')
+    else:
+		messages.error(request,'Invalid username/password')
+		return HttpResponseRedirect('auth/login')
+
+def _logout(request):
+	logout(request)
+	messages.info(request,'You have been logged out')
+	print('Bye')
+	return HttpResponseRedirect('/')
 
 def register(request):
 	return render(request,'register.html')
