@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^auth/$', TemplateView.as_view(template_name="login.html")),
-    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^auth/$', TemplateView.as_view(template_name="backup.html")),
+    url(r'^auth/register$', TemplateView.as_view(template_name="register.html")),
 )
