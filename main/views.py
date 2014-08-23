@@ -6,3 +6,5 @@ def login(request):
 		username=request.POST['username']
 		password=request.POST['password']
 	return render(request,'login/index.html')
+def index():
+	return render('index.html')
