@@ -41,6 +41,19 @@ INSTALLED_APPS = (
     'auth'
     )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    # default context processors for Django 1.4
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    # context processors for 'myproject'
+    "crowdfunding.context_processors.baseurl",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
