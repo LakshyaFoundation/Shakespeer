@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^auth/create_user$', 'auth.views.create_user'),
     url(r'^auth/login$', 'auth.views.login'),
     url(r'^auth/_login$', 'auth.views._login')
+    url(r'^project/$', TemplateView.as_view(template_name="project.html")),
 )

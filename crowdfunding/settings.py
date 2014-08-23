@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'main',
-    'auth'
+    'auth',
+    'project'
     )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
