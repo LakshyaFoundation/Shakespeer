@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^auth/$', TemplateView.as_view(template_name="backup.html")),
     url(r'^auth/register$', TemplateView.as_view(template_name="register.html")),
     url(r'^auth/login$', TemplateView.as_view(template_name="login.html")),
+    url(r'^project/$', TemplateView.as_view(template_name="project.html")),
 )
