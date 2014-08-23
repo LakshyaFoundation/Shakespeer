@@ -45,37 +45,9 @@
 
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <form role="form" action="{{BASE_URL}}/auth/_login" method="POST">
-            {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-              <h2>Please Sign Up <small>It's free and always will be.</small></h2>
-
-              <h2>Login to NITW Kickstarter</h2>
-
-              <hr class="colorgraph">
-              <div class="form-group">
-                <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username / Email" tabindex="3">
-              </div>
-              <div class="form-group">
-                  <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
-              </div>
-
-
-             <hr class="colorgraph">
-             
-             <div class="row">
-              <div class="col-xs-6 col-md-6"><input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-              <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Don't have an ID ? Register Now</a></div>
-              <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Facebook" class="btn btn-primary btn-block btn-lg" tabindex="7" id="facebook-button"></div>
-              <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Google+" class="btn btn-primary btn-block btn-lg" tabindex="7" id="googleplus-button"></div>
-              <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Twitter" class="btn btn-primary btn-block btn-lg" tabindex="7" id="twitter-button"></div>
-            </div>
-          </form>
+          <hr class="colorgraph">
+            <div class="jumbotron">Successfully registered</div>
+            <hr class="colorgraph">
         </div>
       </div>
 
@@ -91,6 +63,13 @@
     <script src="{{STATIC_URL}}js/jquery.appear.min.js"></script>
     <script src="{{STATIC_URL}}js/twitterFetcher.min.js"></script>
     <script src="{{STATIC_URL}}js/script.js"></script>
-
+    <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-25089888-9');ga('send','pageview');
+    </script>
   </body>
   </html>
