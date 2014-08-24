@@ -24,7 +24,7 @@ def _login(request):
 			return HttpResponseRedirect('/login')
     else:
 		messages.error(request,'Invalid username/password')
-		return HttpResponseRedirect('auth/login')
+		return HttpResponseRedirect('/auth/login')
 
 def _logout(request):
 	logout(request)
