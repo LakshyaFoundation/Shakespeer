@@ -15,7 +15,10 @@ urlpatterns = patterns('',
     url(r'^auth/register$', 'auth.views.register'),
     url(r'^auth/create_user$', 'auth.views.create_user'),
     url(r'^auth/login$', 'auth.views.__login'),
-    url(r'^auth/_login$', 'auth.views._login'),
     url(r'^auth/logout$', 'auth.views._logout'),
-    url(r'^project/$', 'project.views.index'),
+    url(r'^auth/_login$', 'auth.views._login'),
+    url(r'^project/$', 'project.views.show_project'),
+    url(r'^project/create$', 'project.views.create_project'),
+    url(r'^project/save_project$', 'project.views.save_project'),
 )
+

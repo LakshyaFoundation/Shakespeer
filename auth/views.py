@@ -30,7 +30,7 @@ def _logout(request):
 	logout(request)
 	messages.info(request,'You have been logged out')
 	print('Bye')
-	return HttpResponseRedirect('/')
+	return HttpResponseRedirect('/auth/login')
 
 def register(request):
 	return render(request,'register.html')
