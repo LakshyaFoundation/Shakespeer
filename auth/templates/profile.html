@@ -7,7 +7,7 @@
   <meta name="description" content="Merlin HTML/CSS template">
   <meta name="author" content="Hasan Alibegic">
   <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
-  <title>Your Profile</title>
+  <title>{%if user%}{%for item in user%}{{item.username}}'s profile{%endfor%}{%endif%}</title>
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
   <link rel="stylesheet" href="{{STATIC_URL}}css/facebookimages.css">
   <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
@@ -50,7 +50,7 @@
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li>
-                  <a href="/index">Home</a>
+                  <a href="{{BASE_URL}}">Home</a>
                 </li>
               </ul>
             </div>
@@ -65,16 +65,22 @@
               <div class="avatar">
                 <img src="https://www.gravatar.com/avatar/6aafd47f09abcafb9201dc05f3cbcda2?d=identicon&amp;f=y" class="profile-avatar">
               </div>
-            </div>
+            </div>{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}{%if user%}{%for item in user%}
             <div class="col-md-5">
               <div class="personal">
-                <h1 class="name">Your Name</h1>
+                <h1 class="name">{{item.first_name}}</h1>
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus vero, enim illo ex at est, praesentium sapiente commodi maiores eveniet id totam magni, iusto ad dignissimos perferendis repellat expedita officiis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt vero dolore vel, deserunt atque reiciendis dolor eligendi fugit magni alias, aliquam eaque esse nemo doloremque laudantium odio velit quas, numquam.</p><p>
                 
                 
                 <button class="btn btn-primary btn-flat btn-rad" data-modal="reply-ticket">1 Project Kickstarted</button>
                 <button class="btn btn-success btn-flat btn-rad" data-modal="reply-ticket">1 Project Pledged</button>
-                <button class="btn btn-info btn-flat btn-rad" data-modal="reply-ticket">2nd Year</button>
+                <button class="btn btn-info btn-flat btn-rad" data-modal="reply-ticket">3rd Year</button>
               </p></div>
             </div>
             <div class="col-md-5">
@@ -83,7 +89,7 @@
                   <tr>
                     <h3>
                     <td style="width:45%;margin-bottom:10px;">Email</td></h3>
-                    <td>root@toor.com</td>
+                    <td>{{item.email}}</td>
                   </tr>
                   <tr>
                     <h3><td>Phone Number</td></h3>
@@ -102,63 +108,21 @@
         <div class="col-md-6">
           <h1 class="name">Projects Kickstarted</h1>
           <div class="lst-popular-project clearfix">
+                {%if project%}{%for item in project%}
                 <div class="grid_6">
                     <div class="project-short sml-thumb">
                         <div class="top-project-info">
                             <div class="content-info-short clearfix">
                                 <a href="#" class="thumb-img">
-                                    <img src="../static/proj4.jpg" alt="$TITLE">
+                                    <img src="{{item.img_link}}" alt="$TITLE">
                                 </a>
                                 <div class="wrap-short-detail">
-                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
-                                    <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
-                                    <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
+                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">{{item.project_name}}</a></h3>
+                                    <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange"></a></p>
+                                    <p class="rs title-description">{{item.project_desc}}</p>
                                     <p class="rs project-location">
                                         <i class="icon iLocation"></i>
-                                        New York, NY
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-project-info clearfix">
-                            <div class="line-progress">
-                                <div class="bg-progress">
-                                    <span style="width: 50%"></span>
-                                </div>
-                            </div>
-                            <div class="group-fee clearfix">
-                                <div class="fee-item">
-                                    <p class="rs lbl">Funded</p>
-                                    <span class="val">50%</span>
-                                </div>
-                                <div class="sep"></div>
-                                <div class="fee-item">
-                                    <p class="rs lbl">Pledged</p>
-                                    <span class="val">$38,000</span>
-                                </div>
-                                <div class="sep"></div>
-                                <div class="fee-item">
-                                    <p class="rs lbl">Days Left</p>
-                                    <span class="val">25</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end: .grid_3 > .project-short-->
-                <div class="grid_6">
-                    <div class="project-short sml-thumb">
-                        <div class="top-project-info">
-                            <div class="content-info-short clearfix">
-                                <a href="#" class="thumb-img">
-                                    <img src="../static/proj3.jpg" alt="$TITLE">
-                                </a>
-                                <div class="wrap-short-detail">
-                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
-                                    <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
-                                    <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
-                                    <p class="rs project-location">
-                                        <i class="icon iLocation"></i>
-                                        New York, NY
+                                        
                                     </p>
                                 </div>
                             </div>
@@ -182,99 +146,14 @@
                                 <div class="sep"></div>
                                 <div class="fee-item">
                                     <p class="rs lbl">Days Left</p>
-                                    <span class="val">18</span>
+                                    <span class="val">{{item.days_req}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><!--end: .grid_3 > .project-short-->
+                </div><!--end: .grid_3 > .project-short-->{%endfor%}{%endif%}
                 <div class="clear clear-2col"></div>
-                <div class="grid_6">
-                    <div class="project-short sml-thumb">
-                        <div class="top-project-info">
-                            <div class="content-info-short clearfix">
-                                <a href="#" class="thumb-img">
-                                    <img src="../static/proj2.jpg" alt="$TITLE">
-                                </a>
-                                <div class="wrap-short-detail">
-                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
-                                    <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
-                                    <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
-                                    <p class="rs project-location">
-                                        <i class="icon iLocation"></i>
-                                        New York, NY
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-project-info clearfix">
-                            <div class="line-progress">
-                                <div class="bg-progress">
-                                    <span style="width: 21%"></span>
-                                </div>
-                            </div>
-                            <div class="group-fee clearfix">
-                                <div class="fee-item">
-                                    <p class="rs lbl">Funded</p>
-                                    <span class="val">21%</span>
-                                </div>
-                                <div class="sep"></div>
-                                <div class="fee-item">
-                                    <p class="rs lbl">Pledged</p>
-                                    <span class="val">$850K</span>
-                                </div>
-                                <div class="sep"></div>
-                                <div class="fee-item">
-                                    <p class="rs lbl">Days Left</p>
-                                    <span class="val">2</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end: .grid_3 > .project-short-->
-                <div class="grid_6">
-                    <div class="project-short sml-thumb">
-                        <div class="top-project-info">
-                            <div class="content-info-short clearfix">
-                                <a href="#" class="thumb-img">
-                                    <img src="../static/proj1.jpg" alt="$TITLE">
-                                </a>
-                                <div class="wrap-short-detail">
-                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">Project title</a></h3>
-                                    <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange">John Doe</a></p>
-                                    <p class="rs title-description">Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing.</p>
-                                    <p class="rs project-location">
-                                        <i class="icon iLocation"></i>
-                                        New York, NY
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-project-info clearfix">
-                            <div class="line-progress">
-                                <div class="bg-progress">
-                                    <span style="width: 50%"></span>
-                                </div>
-                            </div>
-                            <div class="group-fee clearfix">
-                                <div class="fee-item">
-                                    <p class="rs lbl">Funded</p>
-                                    <span class="val">50%</span>
-                                </div>
-                                <div class="sep"></div>
-                                <div class="fee-item">
-                                    <p class="rs lbl">Pledged</p>
-                                    <span class="val">$138,662</span>
-                                </div>
-                                <div class="sep"></div>
-                                <div class="fee-item">
-                                    <p class="rs lbl">Days Left</p>
-                                    <span class="val">44</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end: .grid_3 > .project-short-->
+                
             </div>
         </div>
         <div class="col-md-6">
@@ -455,8 +334,7 @@
                 </div><!--end: .grid_3 > .project-short-->
             </div>
         </div>
-      </div>
-          
+      </div>{%endfor%}{%endif%}
 
 
     <script src="{{STATIC_URL}}js/jquery.min.js"></script>

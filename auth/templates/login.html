@@ -45,7 +45,7 @@
 
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <form role="form" action="{{BASE_URL}}/auth/_login" method="POST">
+            <form role="form" action="{{BASE_URL}}/auth/_login" method="POST">{%csrf_token%}
             {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -70,7 +70,7 @@
              
              <div class="row">
               <div class="col-xs-6 col-md-6"><input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-              <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Don't have an ID ? Register Now</a></div>
+              <div class="col-xs-6 col-md-6"><a href="{{BASE_URL}}/auth/register" class="btn btn-success btn-block btn-lg">Don't have an ID ? Register Now</a></div>
               <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Facebook" class="btn btn-primary btn-block btn-lg" tabindex="7" id="facebook-button"></div>
               <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Google+" class="btn btn-primary btn-block btn-lg" tabindex="7" id="googleplus-button"></div>
               <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Twitter" class="btn btn-primary btn-block btn-lg" tabindex="7" id="twitter-button"></div>

@@ -33,7 +33,16 @@
 					<li class="notshow" data-section="about"><a>Sponsor</a></li>
 					<li class="notshow" data-section="about"><a>About NIT-Warangal</a></li>
 					<li class="notshow" data-section="about"><a>About Us</a></li>
-					<li class="notshow" data-section="about"><a>Login/Signup</a></li>
+					{%if user.is_authenticated%}
+					<li class="notshow" data-section="about"><a href="{{BASE_URL}}/auth/logout">Logout</a></li>{%else%}
+					<li class="notshow" data-section="about"><a href="{{BASE_URL}}/auth/login">Login/Signup</a></li>{%endif%}
+					{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 				</ul>
 			</nav>
 
