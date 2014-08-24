@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^auth/login$', 'auth.views.login'),
     url(r'^auth/_login$', 'auth.views._login'),
     url(r'^project/$', TemplateView.as_view(template_name="project.html")),
+    url(r'^page/$', TemplateView.as_view(template_name="projectpage.html")),
 )

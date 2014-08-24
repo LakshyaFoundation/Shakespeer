@@ -1,0 +1,129 @@
+/*---------- VARIABLES ----------*/
+/*---------- COLORS ----------*/
+/*---------- GENERAL ----------*/
+body {
+  background: #fff;
+  color: #5b5b5b;
+  font: 300 1em/1.5em "Lato", sans-serif;
+  margin: 0;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+a:hover {
+  color: #217dbb;
+}
+
+article {
+  display: block;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.25em;
+  margin: 0 0 .25em 0;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.33em;
+  margin: 0 0 .33em 0;
+}
+
+h4 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 .5em 0;
+}
+
+p {
+  margin: 0 0 .5em 0;
+}
+
+/*---------- UTILITIES ----------*/
+.clearfix, .container, .nav-main ul {
+  *zoom: 1;
+}
+.clearfix:before, .container:before, .nav-main ul:before, .clearfix:after, .container:after, .nav-main ul:after {
+  content: ' ';
+  display: table;
+}
+.clearfix:after, .container:after, .nav-main ul:after {
+  clear: both;
+}
+
+/*---------- -moz-GRID ----------*/
+.container {
+  margin: 0 auto;
+  width: 940px;
+}
+
+/*---------- HEADER ----------*/
+.header {
+  padding: 1em 0;
+}
+
+/*---------- MAIN ----------*/
+.main {
+  margin-top: 3em;
+}
+
+/*---------- NAVIGATIONS ----------*/
+.nav-main {
+  float: right;
+}
+.nav-main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-main li {
+  float: left;
+  margin: 0 .5em;
+}
+.nav-main li.first {
+  margin-left: 0;
+}
+.nav-main li.last {
+  margin-right: 0;
+}
+.nav-main a {
+  color: #5b5b5b;
+  display: inline-block;
+}
+
+/*---------- POSTS ----------*/
+.post {
+  margin-bottom: 2em;
+}
+
+/*---------- BANNER ----------*/
+/* INFO
+   Banner Graphic must be at least the height of .banner + height of parent -moz-element(in this case the header)
+   e.g.  .banner { height: 22em }
+         .header { height: 3.5em }
+         22em + 3.5em = 25.5em
+         25.5em * 16px = 408px
+         => Banner Graphic must be at least 408px height!
+
+Graphic: http://unsplash.com/post/81123587039/download-by-wojtek-witkowski
+*/
+.banner {
+  height: 22em;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner-text {
+  color: #fff;
+  font-size: 1.25em;
+  left: 0;
+  position: absolute;
+  top: 75%;
+  text-align: center;
+  text-shadow: 0 0px 2px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
