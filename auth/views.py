@@ -44,8 +44,6 @@ def create_user(request):
 		password=request.POST['password']
 		firstname=request.POST['first_name']
 		lastname=request.POST['last_name']
-		desc=request.POST['desc']
-		year=request.POST['year']
 		email=request.POST['email']
 		password=request.POST['password']
 		confirm_password=request.POST['password_confirmation']
@@ -53,8 +51,6 @@ def create_user(request):
 			user=User.objects.create_user(firstname,email,password)
 			user.last_name=lastname
 			user.username=username
-			user.desc=desc
-			user.year=year
 			user.save()
 			return render(request,'success.html')
 		else:
