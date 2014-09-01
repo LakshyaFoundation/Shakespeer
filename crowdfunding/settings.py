@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
     'south',
     'main',
     'auth',
@@ -85,6 +86,20 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Open Authentication procedures
+# @documentation : http://psa.matiasaguirre.net/docs/index.html
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.open_id.OpenIdAuth',
+    'social.backends.google.GoogleOpenId',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GoogleOAuth',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.yahoo.YahooOpenId',
+    'social.backends.facebook.FacebookOAuth',
+    'django.contrib.auth.backends.ModelBackend', # for django.contrib.auth username and password
+)
 
 
 # Static files (CSS, JavaScript, Images)
