@@ -8,6 +8,7 @@ class ProjectManager(models.Manager):
 
 class Project(models.Model):
 	project_id=models.AutoField(primary_key=True)
+	"""docstring for Project"""
 	project_name=models.CharField(max_length=200)
 	project_desc=models.CharField(max_length=100)
 	money_req=models.IntegerField(default=1)

@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from project.models import Project
+
 # Create your views here.
 def __login(request):
 	return render(request,'login.html')
@@ -25,10 +26,12 @@ def _login(request):
     else:
 		messages.error(request,'Invalid username/password')
 		return HttpResponseRedirect('/auth/login')
+
 def profile(request,uid):
 	user=User.objects.filter(id=uid)
 	project=Project.objects.filter(userid=uid)
 	return render(request,'profile.html',{'user':user,'project':project})
+
 def _logout(request):
 	logout(request)
 	messages.info(request,'You have been logged out')

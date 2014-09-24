@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.db.models import Sum
+
 # Create your views here.
 def create_project(request):
 	return render(request,'create.html')
@@ -46,6 +47,15 @@ def show_projects(request):
 				print ans['amount']
 	return render(request,'project.html',{'project':p,'user':user,'res':percent})
 
+def show_project(request):
+	p=Project.objects.all()
+	for item in p:
+		item.pledge1=(item.money_req-item.pledge1)/1000
+		item.pledge2=(item.money_req-item.pledge2)/100
+		item.pledge3=(item.money_req-item.pledge3)/100
+		item.pledge4=(item.money_req-item.pledge4)/100
+	return render(request,'project.html',{'project':p})
+
 def save_project(request):
 	if request.method=="POST":
 		project=Project.objects.create_project(request.POST['project_name'],request.POST['project_desc'],request.POST['money_req'],request.POST['days_req'])
@@ -61,9 +71,14 @@ def save_project(request):
 		project.save()
 		messages.info(request,'Project has been successfully created')
 		return HttpResponseRedirect('/project')
+
 def pledge(request):
 	if request.method=="POST":
 		pledge=Pledgers.objects.pledge(request.user.id,request.POST['project_id'],request.POST['amount'])
 		pledge.save()
 		messages.info(request,'Your pledge has been recorded')
 		return HttpResponseRedirect('/')
+		project.userid=request.session['member_id']
+		project.save()
+		messages.info(request,'Project has been successfully created')
+		return HttpResponseRedirect('/project')

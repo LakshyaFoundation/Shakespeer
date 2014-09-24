@@ -48,12 +48,15 @@
             <form role="form" method="POST" action="{{BASE_URL}}/auth/create_user">
             {% csrf_token %}
             {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+{% for message in messages%}
+    <div class="container-fluid">
+      <div class="alert alert-{{message.tags}} fade in" style="text-align:center;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{message}}
+      </div>
+    </div>
+  {% endfor %}
+  {%endif%}
               <h2>Please Sign Up <small>It's free and always will be.</small></h2>
               <hr class="colorgraph">
               <div class="row">

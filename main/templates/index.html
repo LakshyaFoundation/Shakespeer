@@ -24,7 +24,7 @@
 
 	<header>
 		<div class="grid">
-			<div class="logo"><img src="../static/logolakshya.png" alt="Lakshya Foundation" width="104" height="85" /> </div>
+			<div class="logo"><img src="{{BASE_URL}}/static/logolakshya.png" alt="Lakshya Foundation" width="104" height="85" /> </div>
 
 			<nav>
 				<ul class="group" id="menu">
@@ -43,6 +43,7 @@
     {% endfor %}
 </ul>
 {% endif %}
+					<li class="notshow" data-section="about">{%if not user.is_authenticated %}<a href="{{BASE_URL}}/auth/login">Login/Signup</a>{%else%}<a href="{{BASE_URL}}/auth/logout">Logout</a>{%endif%}</li>
 				</ul>
 			</nav>
 

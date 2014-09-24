@@ -4,8 +4,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Merlin HTML/CSS template">
-  <meta name="author" content="Hasan Alibegic">
+  <meta name="description" content="">
+  <meta name="author" content="">
   <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
   <title>Project</title>
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
@@ -20,7 +20,7 @@
     <![endif]-->
   </head>
     <body>
-      <div id="navbar-top">
+      <div id="navbar-top" style="z-index:10000;">
         <nav class="navbar navbar-default navbar-static" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -43,6 +43,10 @@
                 {%else%}
                 <a href="{{BASE_URL}}/auth/login">Login</a>
                 {%endif%}
+                <li>
+                {%if not user.is_authenticated%}
+                  <a href="{{BASE_URL}}/auth/login">Login</a>
+                  {%else%}<a href="{{BASE_URL}}/auth/logout">Logout</a>{%endif%}
                 </li>
               </ul>
             </div>
@@ -61,6 +65,19 @@
     {% endfor %}
 </ul>
 {% endif %}
+
+        <div class="row">{% if messages %}
+{% for message in messages%}
+    <div class="container-fluid">
+      <div class="alert alert-{{message.tags}} fade in" style="text-align:center;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{message}}
+      </div>
+    </div>
+  {% endfor %}
+  {%endif%}
+            <div class="home-popular-project">
+        <div class="container_12-fluid">
             <div class="grid_12 wrap-title">
                 <h2 class="common-title" style="text-align:center;">Projects List</h2>
                 <a class="be-fc-orange" href="category.html">View all</a>
@@ -69,6 +86,8 @@
             <div class="lst-popular-project clearfix">
             {%if project%}{%for item in project%}
                 <div class="grid_3">
+            {%for item in project%}
+                 <div class="grid_3">
                     <div class="project-short sml-thumb">
                         <div class="top-project-info">
                             <div class="content-info-short clearfix">
@@ -91,22 +110,38 @@
                             <div class="line-progress">
                                 <div class="bg-progress">
                                     <span style="width: {%for ans in res%}{{ans}}{%endfor%}%"></span>
+                                    <img src="http://www.communiquepr.com/blog/wp-content/uploads/2013/06/Taco-Bell-Logo-NOT-FROM-ISTOCK.gif" alt="{{item.project_name}}">
+                                </a>
+                                <div class="wrap-short-detail">
+                                    <h3 class="rs acticle-title"><a class="be-fc-orange" href="project.html">{{item.project_name}}</a></h3>
+                                    <p class="rs tiny-desc">by <a href="profile.html" class="fw-b fc-gray be-fc-orange"></a></p>
+                                    <p class="rs title-description">{{item.project_desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-project-info clearfix">
+                            <div class="line-progress">
+                                <div class="bg-progress">
+                                    <span style="width: {{item.pledge1}}%"></span>
                                 </div>
                             </div>
                             <div class="group-fee clearfix">
                                 <div class="fee-item">
                                     <p class="rs lbl">Funded</p>
                                     <span class="val">{%for ans in res%}{%for t in ans%}{%ifequal item.proj_id t.proj_id%}{{t.amount}}{%endifequal%}{%endfor%}{%endfor%}%</span>
+                                    <span class="val">50%</span>
                                 </div>
                                 <div class="sep"></div>
                                 <div class="fee-item">
                                     <p class="rs lbl">Pledged</p>
                                     <span class="val">{{item.money_req}}</span>
+                                    <span class="val">{{item.pledge1}}</span>
                                 </div>
                                 <div class="sep"></div>
                                 <div class="fee-item">
                                     <p class="rs lbl">Days Left</p>
                                     <span class="val">25</span>
+                                    <span class="val">{{item.days_req}}</span>
                                 </div>
                             </div>
                         </div>
@@ -132,3 +167,4 @@
 
   </body>
   </html>
+  
