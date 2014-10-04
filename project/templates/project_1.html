@@ -1,0 +1,54 @@
+{% extends 'header.html'%}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap-theme.min.css"> -->
+<link rel="stylesheet" href="{{STATIC_URL}}css/projects.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/font_awesome.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
+<link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-md-12">
+      <div class="col-md-5 col-md-offset-5">
+        <h1>All projects</h1>
+      </div>
+      <div class="col-md-2 pull-right">
+        <select name="category" id="category" class="form-control input-md">
+          <option value="0">Select Category</option>
+          <option value="1">All</option>
+          <option value="2">Technology</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    {% for item in project %}
+      <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="{{item.img_link}}" alt="{{item.project_name}}" style="max-width:100%;max-height:100%;">
+            <!-- <img src="{{STATIC_URL}}img/work/3.jpg" alt="{{item.project_name}}" style="max-width:100%;max-height:100%;"> -->
+              <div class="caption" style="line-height:1.3;">
+                <h5><b><a href="{{BASE_URL}}/project/show/{{item.project_id}}">{{item.name}}</a></b></h5> 
+                <p><a href="{{BASE_URL}}/profile/{{item.user_id}}" style="color:#aaa;text-decoration:none;">By {{item.user}}</a></p>
+                <p style="font-size:13px;">{{item.desc|truncatewords:":20"}}...<a href="{{BASE_URL}}/project/show/{{item.project_id}}" style="text-decoration:true;">Show more</a></p>
+                <p><a href="#" style="color:#ccc;"><i class="fa fa-map-marker"></i><span> Warangal</span></a></p>
+                <p><div class="progress" style="height:12px;">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{item.percent}}%;">
+                    <span class="sr-only">{{item.percent}}% Complete</span>
+                  </div>
+                </div></p>
+                <p>
+                <div class="col-sm-4" style="margin-top:-20px;"><p style="font-size:11px;"><b>{{item.percent}}%</b> funded</p></div>
+                <div class="col-sm-4" style="margin-top:-20px;"><p style="font-size:11px;"><b><i class="fa fa-rupee"></i>{{item.amount_pledged}}</b> pledged</p></div>
+                <div class="col-sm-4" style="margin-top:-20px;"><p style="font-size:11px;"><b>{% if item.days_left %}{{item.days_left}}</b> days to go{% elif item.days_elapsed %}{{item.days_elapsed}}</b> days elapsed{% endif%}</p></div></p>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

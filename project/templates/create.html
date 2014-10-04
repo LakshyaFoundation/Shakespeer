@@ -42,27 +42,21 @@
           </div>
         </nav>
       </div>
+
       <div class="container-fluid">
 
         <div class="row">
-        {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{%if user.is_authenticated%}
-        {%if messages%}{% for message in messages%}
+ {%if user.is_authenticated %}
+        
+
+{%if messages%}{% for message in messages%}
     <div class="container-fluid">
       <div class="alert alert-{{message.tags}} fade in" style="text-align:center;">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         {{message}}
       </div>
-    </div>
-  {% endfor %}
-  {%endif%}
-{%if request.user.id > 0%}
+    </div>{% endfor %}{% endif %}
+
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_project">{% csrf_token %}
 <center><h1 style="margin-top:5px;">Create Project</h1></center>
@@ -181,13 +175,15 @@
 </fieldset>
 </form>
 </div>
-        </div>
-      </div>
-      {%else%}
+
+{%else%}
       <div class="jumbotron">
         <p class="lead">You must be logged in to create a project.</p>
       </div>
 {%endif%}
+        </div>
+      </div>
+      
 
     <script src="{{STATIC_URL}}js/jquery.min.js"></script>
     <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>

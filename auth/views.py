@@ -9,7 +9,9 @@ from project.models import Project
 
 # Create your views here.
 def __login(request):
-	return render(request,'login.html')
+	current_page='login'
+	title="Login"
+	return render(request,'login.html',{'current_page':current_page,'title':title})
 
 def _login(request):
     username = request.POST['username']
@@ -22,7 +24,7 @@ def _login(request):
 			return HttpResponseRedirect('/project')
 		else:
 			messages.info(request,'Your account is inactive. Contact webmaster')
-			return HttpResponseRedirect('/login')
+			return HttpResponseRedirect('/auth/login')
     else:
 		messages.error(request,'Invalid username/password')
 		return HttpResponseRedirect('/auth/login')

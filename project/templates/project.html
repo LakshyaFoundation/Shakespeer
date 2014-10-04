@@ -58,14 +58,6 @@
         <div class="row">
             <div class="home-popular-project">
         <div class="container_12-fluid">
-        {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-
         <div class="row">{% if messages %}
 {% for message in messages%}
     <div class="container-fluid">
@@ -84,9 +76,9 @@
             </div>
             <div class="clear"></div>
             <div class="lst-popular-project clearfix">
-            {%if project%}{%for item in project%}
+           {%for item in project%}
                 <div class="grid_3">
-            {%for item in project%}
+          
                  <div class="grid_3">
                     <div class="project-short sml-thumb">
                         <div class="top-project-info">
@@ -96,7 +88,7 @@
                                 </a>
                                 <div class="wrap-short-detail">
                                     <h3 class="rs acticle-title"><a class="be-fc-orange" href="{{BASE_URL}}/project/show/{{item.project_id}}">{{item.project_name}}</a></h3>
-                                    <p class="rs tiny-desc">by {%for item in user%}<a href="{{BASE_URL}}/profile/{{item.id}}" class="fw-b fc-gray be-fc-orange">{{item.username}}{%endfor%}</a></p>
+                                    <p class="rs tiny-desc">by <a href="{{BASE_URL}}/profile/{{user.id}}" class="fw-b fc-gray be-fc-orange">{{user.username}}</a></p>
                                     <p class="rs title-description">{{item.project_desc}}</p>
                                     <p class="rs project-location">
                                         <i class="icon iLocation"></i>
@@ -109,7 +101,7 @@
                         <div class="bottom-project-info clearfix">
                             <div class="line-progress">
                                 <div class="bg-progress">
-                                    <span style="width: {%for ans in res%}{{ans}}{%endfor%}%"></span>
+                                    <span style="width: 30%"></span>
                                     <img src="http://www.communiquepr.com/blog/wp-content/uploads/2013/06/Taco-Bell-Logo-NOT-FROM-ISTOCK.gif" alt="{{item.project_name}}">
                                 </a>
                                 <div class="wrap-short-detail">
@@ -128,7 +120,7 @@
                             <div class="group-fee clearfix">
                                 <div class="fee-item">
                                     <p class="rs lbl">Funded</p>
-                                    <span class="val">{%for ans in res%}{%for t in ans%}{%ifequal item.proj_id t.proj_id%}{{t.amount}}{%endifequal%}{%endfor%}{%endfor%}%</span>
+                                    <span class="val">20%</span>
                                     <span class="val">50%</span>
                                 </div>
                                 <div class="sep"></div>
@@ -146,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!--end: .grid_3 > .project-short-->{%endfor%}{%endif%}
+                </div><!--end: .grid_3 > .project-short-->{%endfor%}
             </div>
         </div>
     </div>

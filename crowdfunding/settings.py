@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -36,7 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
+    # 'social.apps.django_app.default',
     'gunicorn',
     'south',
     'main',
@@ -92,13 +91,13 @@ USE_TZ = True
 # @documentation : http://psa.matiasaguirre.net/docs/index.html
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.open_id.OpenIdAuth',
-    'social.backends.google.GoogleOpenId',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.google.GoogleOAuth',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.yahoo.YahooOpenId',
-    'social.backends.facebook.FacebookOAuth',
+    # 'social.backends.open_id.OpenIdAuth',
+    # 'social.backends.google.GoogleOpenId',
+    # 'social.backends.google.GoogleOAuth2',
+    # 'social.backends.google.GoogleOAuth',
+    # 'social.backends.twitter.TwitterOAuth',
+    # 'social.backends.yahoo.YahooOpenId',
+    # 'social.backends.facebook.FacebookOAuth',
     'django.contrib.auth.backends.ModelBackend', # for django.contrib.auth username and password
 )
 
@@ -107,6 +106,7 @@ AUTHENTICATION_BACKENDS = (
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
@@ -141,9 +141,9 @@ LOGGING = {
 
 # Load the local settings
 # This should be at the end for overriding
-try:
-    from .settings_local import *
-except ImportError:
-    print "You don't have a settings_local file"
-    raise
+# try:
+#     from .settings_local import *
+# except ImportError:
+#     print "You don't have a settings_local file"
+#     raise
 

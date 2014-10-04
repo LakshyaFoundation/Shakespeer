@@ -6,7 +6,8 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.db.models import Sum
-
+import datetime
+from django.utils import timezone
 # Create your views here.
 def create_project(request):
 	return render(request,'create.html')
@@ -15,7 +16,7 @@ def show_project_page(request,id):
 	p=Project.objects.filter(project_id=id)
 	return render(request,'projectpage.html',{'project':p})
 
-def _pledge(request):
+def pledge(request):
 	if request.method=="POST":
 		amount=int(request.POST.get('amount',False))
 		proj_id=int(request.POST.get('pid',False))
@@ -26,28 +27,28 @@ def _pledge(request):
 		messages.info(request,'Your pledge has been recorded')
 		return HttpResponseRedirect('/project')
 
-def show_projects(request):	
-	p=Project.objects.all()
-	pl=Pledgers.objects.all()#values('project_id').distinct()
-	res=[]
-	amsum=[]
-	for item in p:
-		user=User.objects.filter(id=item.userid)
-	for proj in pl:
-		pt=Pledgers.objects.filter(project_id=proj.project_id).aggregate(Sum('amount_pledged'))
-		res.append({'amount':pt['amount_pledged__sum'],'proj_id':proj.project_id})
-	percent=[]
-	for item in p:
-		for ans in res:
-			print item.project_id,' ',ans['proj_id']
-			if item.project_id==ans['proj_id']:
-				amsum.append(ans['amount'])
-				ans['amount']=(item.money_req-ans['amount'])*100.00/item.money_req
-				percent.append({'amount':ans['amount'],'proj_id':ans['proj_id']})
-				print ans['amount']
-	return render(request,'project.html',{'project':p,'user':user,'res':percent})
-
 def show_project(request):
+	title='Projects'
+	current_page='projects'
+	current_date=timezone.make_aware(datetime.datetime.now(),timezone.get_default_timezone())
+	projects=Project.objects.all().select_related()
+	for item in projects:
+		pledger=Pledgers.objects.filter(project_id=item.project_id ).aggregate(Sum('amount_pledged'))
+		for key,value in pledger.iteritems():
+			if not value is None:
+				item.percent=(100*(float(value)/float(item.money_req)))
+				item.amount_pledged=value
+			else:
+				item.percent=0
+				item.amount_pledged=0
+		diff=current_date-item.date
+		if item.days_req-diff.days>0:
+			item.days_left=item.days_req-diff.days
+		else:
+			item.days_elapsed=diff.days-item.days_req
+	return render(request,'project_1.html',{'title':title,'current_page':current_page,'project':projects})
+
+def test(request):
 	p=Project.objects.all()
 	for item in p:
 		item.pledge1=(item.money_req-item.pledge1)/1000
@@ -58,7 +59,11 @@ def show_project(request):
 
 def save_project(request):
 	if request.method=="POST":
-		project=Project.objects.create_project(request.POST['project_name'],request.POST['project_desc'],request.POST['money_req'],request.POST['days_req'])
+		project=Project()
+		project.name=request.POST['project_name']
+		project.desc=request.POST['project_desc']
+		project.money_req=request.POST['money_req']
+		project.days_req=request.POST['days_req']
 		project.img_link=request.POST['img_link']
 		project.details=request.POST['details']
 		project.project_use=request.POST['project_use']
@@ -67,18 +72,24 @@ def save_project(request):
 		project.pledge2=request.POST['pledge2']
 		project.pledge3=request.POST['pledge3']
 		project.pledge4=request.POST['pledge4']
-		project.userid=request.user.id
+		project.user=request.user
 		project.save()
 		messages.info(request,'Project has been successfully created')
 		return HttpResponseRedirect('/project')
 
-def pledge(request):
+def _pledge(request):
 	if request.method=="POST":
-		pledge=Pledgers.objects.pledge(request.user.id,request.POST['project_id'],request.POST['amount'])
+		proj_id=int(request.POST.get('pid',False))
+		amount=int(request.POST.get('amount',False))
+		proj=Project.objects.filter(project_id=proj_id)
+		project=Project()
+		for item in proj:
+			project=item
+			print type(item)
+		pledge=Pledgers()
+		pledge.pledger=request.user
+		pledge.project=project
+		pledge.amount_pledged=amount
 		pledge.save()
 		messages.info(request,'Your pledge has been recorded')
-		return HttpResponseRedirect('/')
-		project.userid=request.session['member_id']
-		project.save()
-		messages.info(request,'Project has been successfully created')
-		return HttpResponseRedirect('/project')
+		return HttpResponseRedirect('/project/show/'+str(proj_id))

@@ -210,8 +210,8 @@ h3.note, .note, .shortnote {
 <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_pledge" id="pledge" style="display:none;">{%csrf_token%}
 <div class="form-group">
   <input type="hidden" value="{{item.project_id}}" name="pid">
-  <input type="hidden" value="{{user.id}}" name="uid">
   <input class="form-control" type="text" placeholder="Enter pledge amount" name="amount">
+  <input type="submit" value="Submit">
 </div>
 </form>
 <button class="blue_button reserve" onclick="$('#pledge').show();">

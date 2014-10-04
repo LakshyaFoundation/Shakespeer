@@ -17,12 +17,13 @@ urlpatterns = patterns('',
     url(r'^auth/login$', 'auth.views.__login'),
     url(r'^auth/logout$', 'auth.views._logout'),
     url(r'^auth/_login$', 'auth.views._login'),
-    url(r'^project/$', 'project.views.show_projects'),
+    url(r'^project/$', 'project.views.show_project'),
     url(r'^project/show/(?P<id>[0-9]+)/$', 'project.views.show_project_page', name='show_project_page'),    
     url(r'^project/create$', 'project.views.create_project'),
     url(r'^project/save_project$', 'project.views.save_project'),
     url(r'^project/pledge$', 'project.views.pledge'),
     url(r'^project/save_pledge$', 'project.views._pledge'),
     url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile'),
+    url(r'^project/test$', 'project.views.test')
 )
 

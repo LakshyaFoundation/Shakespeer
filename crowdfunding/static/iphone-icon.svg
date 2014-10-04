@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="148px" height="148px" viewBox="0 0 148 148" enable-background="new 0 0 148 148" xml:space="preserve">
+<metadata>
+	<sfw xmlns="http://ns.adobe.com/SaveForWeb/1.0/">
+		<slices/>
+		<sliceSourceBounds y="-8117" x="-8118" bottomLeftOrigin="true" width="16383" height="16383"/>
+	</sfw>
+</metadata>
+<g id="Layer_1">
+	<g id="BG">
+		<g id="Layer_3">
+			<circle fill="#D15855" cx="73.9" cy="73.8" r="73.7"/>
+		</g>
+	</g>
+</g>
+<g id="Layer_2">
+	<g id="iphone_2_">
+		<path fill="#FFFFFF" d="M93.645,34.667l-38.999,0.002c-4.042,0-7.312,3.273-7.312,7.312v63.374c0,4.039,3.27,7.312,7.312,7.312    l38.999-0.002c4.038,0,7.312-3.273,7.312-7.312V41.979C100.957,37.94,97.683,34.667,93.645,34.667z M96.083,105.354    c0,1.344-1.095,2.437-2.438,2.437l-38.999,0.003c-1.347,0-2.438-1.093-2.438-2.438v-4.885l43.875-0.002V105.354z M96.083,98.031    l-43.875,0.003v-48.74l43.875-0.002V98.031z M96.083,46.855l-43.875,0.002v-4.875c0-1.345,1.09-2.438,2.438-2.438l38.999-0.002    c1.344,0,2.438,1.093,2.438,2.437V46.855z"/>
+		<path fill="#FFFFFF" d="M79.021,43.199c0,0.673-0.547,1.218-1.219,1.218h-7.312c-0.676,0-1.219-0.545-1.219-1.218l0,0    c0-0.674,0.543-1.219,1.219-1.219h7.312C78.474,41.979,79.021,42.524,79.021,43.199L79.021,43.199z"/>
+		<path fill="#FFFFFF" d="M76.583,104.125c0,0.674-0.548,1.219-1.219,1.219h-2.438c-0.676,0-1.219-0.545-1.219-1.219l0,0    c0-0.674,0.543-1.22,1.219-1.22h2.438C76.035,102.905,76.583,103.451,76.583,104.125L76.583,104.125z"/>
+	</g>
+</g>
+</svg>
