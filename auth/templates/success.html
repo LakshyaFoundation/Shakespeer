@@ -1,46 +1,9 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Merlin HTML/CSS template">
-  <meta name="author" content="Hasan Alibegic">
-  <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
-  <title>Lakshya Crowd Funding Register</title>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
+{%extends "header.html" %}
+{%block content %}
   <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
   <link rel="stylesheet" href="{{STATIC_URL}}css/animate.min.css">
   <link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
-    <!--[if lt IE 9]>
-    <script src="{{STATIC_URL}}js/html5shiv.js"></script>
-    <script src="{{STATIC_URL}}js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-    <body>
-      <div id="navbar-top">
-        <nav class="navbar navbar-default navbar-static" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand nav-external" href="#home">Lakshya Crowdfunding</a>
-            </div>
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <a href="{{BASE_URL}}">Home</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+    
       <div class="container">
 
         <div class="row">
@@ -59,10 +22,6 @@
       </div>
 
     </div>
-
-
-    <script src="{{STATIC_URL}}js/jquery.min.js"></script>
-    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
     <script src="{{STATIC_URL}}js/isotope.pkgd.min.js"></script>
     <script src="{{STATIC_URL}}js/imagesloaded.min.js"></script>
     <script src="{{STATIC_URL}}js/jquery.scrollTo.min.js"></script>
@@ -70,6 +29,4 @@
     <script src="{{STATIC_URL}}js/jquery.appear.min.js"></script>
     <script src="{{STATIC_URL}}js/twitterFetcher.min.js"></script>
     <script src="{{STATIC_URL}}js/script.js"></script>
-    
-  </body>
-  </html>
+{% endblock %}

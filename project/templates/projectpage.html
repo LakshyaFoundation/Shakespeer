@@ -1,238 +1,218 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Merlin HTML/CSS template">
-  <meta name="author" content="Hasan Alibegic">
-  <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
-  <title>Project Title</title>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/project-post.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/kickstarter.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/facebookimages.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/animate.min.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--[if lt IE 9]>
+{%extends "header.html"%} {%block content%}
+<link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
+<!-- <link rel="stylesheet" href="{{STATIC_URL}}css/project-post.css"> -->
+<link rel="stylesheet" href="{{STATIC_URL}}css/kickstarter.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/facebookimages.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/animate.min.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
     <script src="{{STATIC_URL}}js/html5shiv.js"></script>
     <script src="{{STATIC_URL}}js/respond.min.js"></script>
     <![endif]-->
-</head>
-<body>
-  <div id="navbar-top">
-    <nav class="navbar navbar-default navbar-static" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand nav-external" href="#home">Lakshya Crowdfunding</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="{{BASE_URL}}">Home</a>
-      </li>
-  </ul>
-</div>
-</div>
-</nav>
-</div>
-<style>
-.donation-progress-bar {
-    background: none repeat scroll 0% 0% #838383;
-    border-radius: 26px;
-    width: 40%;
-    height: 26px;
-    padding: 0px 25px;
-    position: relative;
-    text-align: center;
-}
-.donation-progress {
-    background-color: #FD6E6E;
-    background: none repeat scroll 0% 0% #838383;
-    border-radius: 26px;
-    width: 40%;
-    height: 26px;
-    padding: 0px 25px;
-    position: relative;
-    text-align: center;
-}
-h3.note, .note, .shortnote {
-    background: #eee;
-    padding: 5px;
-    margin: 0 0 15px 0;
-    border-radius: 0px;
-    color: #555;
-    margin-right: 1px;
-}
-</style>
 <div class="container-fluid">
 
     <div class="row-fluid">
-        <div class="col-md-12">
-        {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-        {%if project%}{%for item in project%}
-        <h2 style="text-align:center;">{{item.project_name}}</h2>
-        </div>
-        <hr>
-        
-    </div> <!-- end banner -->
+        <div class="col-md-12" style="padding-top:65px;">
 
-    <div class="main">
-          <div class="wrapper clearfix">
-            <div class="col-md-6">
-  <div id="video" style="width:50%; margin: 0px auto;">
-    <iframe width='512' height='385' src="https://www.youtube.com/v/D1L3o88GKew?autohide=1&showinfo=0&rel=0&autoplay=0"></iframe>
-  </div>
-</div>
-<div class="col-md-5 pull-right">
-  <div id="backing">
-    <ul>
-      <li class="stats" id="backers">
-        {{item.pledgers}}
-        <span>backers</span>
-      </li>
-      <li class="stats">
-        N/A
-        of  <span>&#8377;1,995</span>
-      </li>
+            {%if project%}{%for item in project%}
 
-        <li class="stats" id="days">
-            &infin;
-            <span>days left</span>
-          </li>
-    </ul>
-    
-      <div id='progress_bg' class='small'>
-        <div id='progress' class='' style='width: 100%;'>
-        </div>
-      </div>
+            <div class="main">
+                <div class="wrapper clearfix">
 
-      <div class="col-md-12" style="margin-top:2rem;">
-          <h4>Project Updates</h4>
-          <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat aliquam, cumque iusto delectus nihil exercitationem voluptatem dolores eos dolorum harum labore incidunt. Quo soluta beatae id. Quod dolorum molestiae fugit.</p>
-      </div>
-    
-  </div>
-  
-</div>
-</div>
-<hr>
-<div class="container">
-    <h3>Description</h3>
-    <article>{{item.details}}</article>
-</div>
-<hr>
-       <div class="container">
-        
-        <div class="col-md-3">
-            <h3>Pledge 1</h3>
-            <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.<br><span class="fa fa-inr"></span> {{item.pledge1}}</p>
-        </div>
-        <div class="col-md-3">
-            <h3>Pledge 2</h3>
-            <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.<br><span class="fa fa-inr"></span>{{item.pledge2}}</p>
-        </div>
-        <div class="col-md-3">
-            <h3>Pledge 3</h3>
-            <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.<br><span class="fa fa-inr"></span> {{item.pledge3}}</p>
-        </div>
-        <div class="col-md-3">
-            <h3>Pledge 4</h3>
-            <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.<br><span class="fa fa-inr"></span> {{item.pledge4}}</p>
-        </div>
-        <div class="campaign-content">
-        </div>
-    </div> <!-- end container -->
-    <hr>
-    <div class="container">
-        <div class="col-md-12">
-            <h3>Risks &amp; Challenges</h3>
-            <article class="note">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nesciunt, reprehenderit ex, inventore cumque, excepturi voluptatibus rerum cum impedit dicta in iure. Praesentium esse, nihil voluptatum sed doloribus repellat consequatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi suscipit dolorum necessitatibus, sunt nulla error nihil distinctio ipsa reprehenderit odio enim, minus repellendus aperiam mollitia explicabo repellat, quis molestiae atque.<br>
+                    <div class="col-md-6 pull-left">
+                        <div class="col-md-6">
+                            <img src="{{item.img_link}}" alt="{{item.name}}">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 style="line-height:1.4em;font-weight:300;">{{item.name}}</h4>
+                        </div>
+                        <div id="backing">
 
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque mollitia repellendus nesciunt dolorem nihil esse minima. Nulla corporis quam impedit soluta ea, commodi distinctio quos! Culpa quaerat a voluptas eligendi?
-            </article>
-        </div>
-    </div>
-    <hr>
-    <div class="home-discover-friends">
-    <div class="container_12">
-        <div class="col-md-12">
-            <h3>Pledged By X people</h3>
-            <div class="row-friends">
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&amp;oe=54677AEC&amp;__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&amp;oe=54618C6F&amp;__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&amp;oe=545FD6D2&amp;__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&amp;oe=545EAC17&amp;__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME"></a>
-                <div class="clear"></div>
+                            <ul>
+                                <li class="stats" id="backers">
+                                    {{item.backers}}
+                                    <span>backers</span>
+                                </li>
+                                <li class="stats">
+                                    {{item.amount_pledged}}
+                                    <span>&#8377;{{item.money_req}}</span>
+                                </li>
+
+                                <li class="stats" id="days">
+                                    {%if item.days_left%}{{item.days_left}}{%elif item.days_elapsed%}{{item.days_elapsed}}{%endif%}
+                                    <span>days left</span>
+                                </li>
+                            </ul>
+                            <!-- 
+                    <div id='progress_bg' class='small'>
+                        <div id='progress' class='' style='width: {{item.percent}}%;'>{{item.percent}}% funded
+                        </div>
+                    </div> -->
+
+                            <div class="progress" style="height:12px;">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{item.percent}}%;">
+                                    <span class="sr-only">{{item.percent}}% Complete</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" style="margin-top:2rem;">
+                                <h4>Project Updates</h4>
+                                <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat aliquam, cumque iusto delectus nihil exercitationem voluptatem dolores eos dolorum harum labore incidunt. Quo soluta beatae id. Quod dolorum molestiae fugit.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div id="video" style="width:50%; margin: 0px auto;">
+                            <iframe width='512' height='385' src="//www.youtube.com/embed/eubWYPhcEEo?list=PL_yIBWagYVjzyHkL3IcgxB7C2fu3ZfiID"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="container">
+                    <h3>Description</h3>
+                    <article>{{item.details}}</article>
+                </div>
+                <hr>
+                <div class="container">
+
+                    <div class="col-md-3 thumbnail">
+                        <h3>Pledge 1</h3>
+                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
+                            <br>
+                            <span class="fa fa-inr"></span>{{item.pledge1}}</p>
+                    </div>
+                    <div class="col-md-3 thumbnail">
+                        <h3>Pledge 2</h3>
+                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
+                            <br>
+                            <span class="fa fa-inr"></span>{{item.pledge2}}</p>
+                    </div>
+                    <div class="col-md-3 thumbnail">
+                        <h3>Pledge 3</h3>
+                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
+                            <br>
+                            <span class="fa fa-inr"></span>{{item.pledge3}}</p>
+                    </div>
+                    <div class="col-md-3 thumbnail">
+                        <h3>Pledge 4</h3>
+                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
+                            <br>
+                            <span class="fa fa-inr"></span>{{item.pledge4}}</p>
+                    </div>
+                    <div class="campaign-content">
+                    <p>hello</p>
+                    </div>
+                </div>
+                <!-- end container -->
+                <hr>
+                <div class="container">
+                    <div class="col-md-12">
+                        <h3>Risks &amp; Challenges</h3>
+                        <article class="note">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nesciunt, reprehenderit ex, inventore cumque, excepturi voluptatibus rerum cum impedit dicta in iure. Praesentium esse, nihil voluptatum sed doloribus repellat consequatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi suscipit dolorum necessitatibus, sunt nulla error nihil distinctio ipsa reprehenderit odio enim, minus repellendus aperiam mollitia explicabo repellat, quis molestiae atque.
+                            <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque mollitia repellendus nesciunt dolorem nihil esse minima. Nulla corporis quam impedit soluta ea, commodi distinctio quos! Culpa quaerat a voluptas eligendi?
+                        </article>
+                    </div>
+                </div>
+                <hr>
+                <div class="home-discover-friends" style="display:none;">
+                    <div class="container_12">
+                        <div class="col-md-12">
+                            <h3>Pledged By {{item.backers}} people</h3>
+                            <div class="row-friends">
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&amp;oe=54677AEC&amp;__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&amp;oe=54618C6F&amp;__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&amp;oe=545FD6D2&amp;__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&amp;oe=545EAC17&amp;__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME">
+                                </a>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="row-friends">
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&amp;oe=54677AEC&amp;__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&amp;oe=54618C6F&amp;__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&amp;oe=545FD6D2&amp;__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME">
+                                </a>
+                                <a class="thumb-avatar" href="#">
+                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&amp;oe=545EAC17&amp;__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME">
+                                </a>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="container" >
+                    {% if user.is_authenticated %}
+
+                    <div class="big_wrapper">
+                        <div class="wrapper center" id="middle_reserve" style="">
+                            <!-- Button trigger modal -->
+                            <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_pledge" id="pledge" style="display:none;">{%csrf_token%}
+                                <div class="form-group">
+                                    <input type="hidden" value="{{item.project_id}}" name="pid">
+                                    <input class="form-control" type="text" placeholder="Enter pledge amount" name="amount">
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </form>
+                            <button class="blue_button reserve" onclick="$('#pledge').show();">
+                                Pledge for this project
+                            </button>
+                        </div>
+
+                    </div>
+
+                    {% endif %}{%endfor%}{% endif %}
+
+                </div>
             </div>
-                       <div class="row-friends">
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&amp;oe=54677AEC&amp;__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&amp;oe=54618C6F&amp;__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&amp;oe=545FD6D2&amp;__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME"></a>
-                <a class="thumb-avatar" href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&amp;oe=545EAC17&amp;__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME"></a>
-                <div class="clear"></div>
-            </div>
+            <!-- end main -->
         </div>
     </div>
-    </div>
-    
-    <hr>
-    <div class="container" style="margin-top:30px;">
-    {% if user.is_authenticated %}
-    
-        <div class="big_wrapper">
-  <div class="wrapper center" id="middle_reserve" style="margin-top: 200px;">
-  <!-- Button trigger modal -->
-<form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_pledge" id="pledge" style="display:none;">{%csrf_token%}
-<div class="form-group">
-  <input type="hidden" value="{{item.project_id}}" name="pid">
-  <input class="form-control" type="text" placeholder="Enter pledge amount" name="amount">
-  <input type="submit" value="Submit">
-</div>
-</form>
-<button class="blue_button reserve" onclick="$('#pledge').show();">
-  Pledge for this project
-</button>
-  </div>
-
-</div>  
-   
-    {% endif %}{%endfor%}{% endif %}
-
-    </div>
-</div> <!-- end main -->
-</div>
-</div>
 
 </div>
 
-<script src="{{STATIC_URL}}js/jquery.min.js"></script>
+
 <script src="{{STATIC_URL}}js/jquery-sizzle.js"></script>
-<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
 <script src="{{STATIC_URL}}js/isotope.pkgd.min.js"></script>
 <script src="{{STATIC_URL}}js/imagesloaded.min.js"></script>
 <script src="{{STATIC_URL}}js/jquery.scrollTo.min.js"></script>
@@ -241,5 +221,4 @@ h3.note, .note, .shortnote {
 <script src="{{STATIC_URL}}js/twitterFetcher.min.js"></script>
 <script src="{{STATIC_URL}}js/script.js"></script>
 
-</body>
-</html>
+{%endblock%}

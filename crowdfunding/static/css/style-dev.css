@@ -10,6 +10,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
   color: #666;
+  padding-top: 65px;
 }
 h1,
 h2,
@@ -88,7 +89,7 @@ a:focus {
   background-image: url(../img/fading-line.gif);
   background-repeat: no-repeat;
   background-position: center center;
-}
+}/*
 #navbar-top { min-height: 51px }
 .navbar-default {
   margin-bottom: 0;
@@ -124,7 +125,7 @@ a:focus {
   -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
      -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
           box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
-}
+}*/
 .page { overflow: hidden }
 .page .content { padding: 60px 0 }
 .page .content.cover { padding: 240px 0 }

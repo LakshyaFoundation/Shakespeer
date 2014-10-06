@@ -47,9 +47,9 @@
     {%if messages%}
     {% for message in messages%}
     <div class="container">
-      <div class="alert alert-success fade in" style="text-align:center;">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$('.alert').hide()">&times;</button>
-        {{message}}
+      <div class="alert alert-{% if message.tags == 'info'%}info{%elif message.tags == 'error'%}danger{%else%}{{message.tags}}{%endif%} fade in" style="text-align:center;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{message|safe}}
       </div>
     </div>
   {% endfor %}

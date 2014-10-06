@@ -23,7 +23,6 @@ urlpatterns = patterns('',
     url(r'^project/save_project$', 'project.views.save_project'),
     url(r'^project/pledge$', 'project.views.pledge'),
     url(r'^project/save_pledge$', 'project.views._pledge'),
-    url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile'),
-    url(r'^project/test$', 'project.views.test')
+    url(r'^list/$', 'project.views.list', name='list'),
+    url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile')
 )
-
