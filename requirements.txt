@@ -4,3 +4,4 @@ argparse==1.2.1
 wsgiref==0.1.2
 mysql-python
 python-social-auth
+gunicorn
