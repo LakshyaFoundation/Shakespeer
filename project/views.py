@@ -79,13 +79,16 @@ def pledge(request):
 		messages.info(request,'Your pledge has been recorded')
 		return HttpResponseRedirect('/project')
 
-def save_project(request):
+def save_project(request,**kwargs):
 	if request.method == 'POST':
-		form = ProjectForm(request.POST, request.FILES,user=request.user)
+		user=request.user
+		form = ProjectForm(request.POST, request.FILES)
 		print form.is_valid()
 		print form.errors
     	if form.is_valid():
-    		project=form.save()
+    		project=form.save(commit=False)
+    		project.user=user
+    		project.save()
     		messages.info(request,'Project has been successfully created')
     		return HttpResponseRedirect('/project')
     	else:
