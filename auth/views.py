@@ -11,7 +11,7 @@ from project.models import Project
 def __login(request):
 	current_page='login'
 	title="Login"
-	return render(request,'login.html',{'current_page':current_page,'title':title})
+	return render(request,'auth/login.html',{'current_page':current_page,'title':title})
 
 def _login(request):
     username = request.POST['username']
@@ -32,7 +32,7 @@ def _login(request):
 def profile(request,uid):
 	user=User.objects.filter(id=uid)
 	project=Project.objects.filter(userid=uid)
-	return render(request,'profile.html',{'user':user,'project':project})
+	return render(request,'auth/profile.html',{'user':user,'project':project})
 
 def _logout(request):
 	logout(request)
@@ -41,7 +41,7 @@ def _logout(request):
 	return HttpResponseRedirect('/auth/login')
 
 def register(request):
-	return render(request,'register.html')
+	return render(request,'auth/register.html')
 
 def create_user(request):
 	if request.method=="POST":
@@ -57,8 +57,8 @@ def create_user(request):
 			user.last_name=lastname
 			user.username=username
 			user.save()
-			return render(request,'success.html')
+			return render(request,'auth/success.html')
 		else:
 			messages.error(request, 'Password mismatch.')
-		return render(request,'login.html')
-	return render(request,'login.html')
+		return render(request,'auth/login.html')
+	return render(request,'auth/login.html')

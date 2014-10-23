@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'south',
     'main',
     'auth',
-    'project'
+    'project',
     )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -107,6 +107,10 @@ AUTHENTICATION_BACKENDS = (
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = "/home/kranthi/Documents/Django-learn/Shakespeer/media/"
+
+MEDIA_URL = "/media/"
+
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
@@ -138,6 +142,7 @@ LOGGING = {
     }
 }
 
+TEMPLATE_DIRS = ('crowdfunding/templates',)
 
 # Load the local settings
 # This should be at the end for overriding

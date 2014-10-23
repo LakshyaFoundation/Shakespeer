@@ -1,4 +1,4 @@
-{%extends "header.html"%} {%block content%}
+{%extends "project/header.html"%} {%block content%}
 <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
 <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/project-post.css"> -->
 <link rel="stylesheet" href="{{STATIC_URL}}css/kickstarter.css">
@@ -22,7 +22,7 @@
 
                     <div class="col-md-6 pull-left">
                         <div class="col-md-6">
-                            <img src="{{item.img_link}}" alt="{{item.name}}">
+                            <img src="{{BASE_URL}}/media/{{ item.photo }}" alt="{{item.name}}">
                         </div>
                         <div class="col-md-6">
                             <h4 style="line-height:1.4em;font-weight:300;">{{item.name}}</h4>
@@ -35,7 +35,7 @@
                                     <span>backers</span>
                                 </li>
                                 <li class="stats">
-                                    {{item.amount_pledged}}
+                                    {{item.amount_pledged}} <span style="display:inline;">of</span>
                                     <span>&#8377;{{item.money_req}}</span>
                                 </li>
 
@@ -58,7 +58,7 @@
 
                             <div class="col-md-12" style="margin-top:2rem;">
                                 <h4>Project Updates</h4>
-                                <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat aliquam, cumque iusto delectus nihil exercitationem voluptatem dolores eos dolorum harum labore incidunt. Quo soluta beatae id. Quod dolorum molestiae fugit.</p>
+                                <p class="note">{{item.update}}.</p>
                             </div>
 
                         </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-md-6">
                         <div id="video" style="width:50%; margin: 0px auto;">
-                            <iframe width='512' height='385' src="//www.youtube.com/embed/eubWYPhcEEo?list=PL_yIBWagYVjzyHkL3IcgxB7C2fu3ZfiID"></iframe>
+                            <iframe width='512' height='385' src="{{item.video_link}}"></iframe>
                         </div>
                     </div>
                 </div>

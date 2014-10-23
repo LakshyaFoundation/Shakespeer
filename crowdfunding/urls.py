@@ -24,5 +24,17 @@ urlpatterns = patterns('',
     url(r'^project/pledge$', 'project.views.pledge'),
     url(r'^project/save_pledge$', 'project.views._pledge'),
     url(r'^list/$', 'project.views.list', name='list'),
-    url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile')
+    url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile'),
 )
+
+from django.conf import settings
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.STATIC_ROOT,
+        }),
+)
+

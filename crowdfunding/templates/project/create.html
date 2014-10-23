@@ -1,4 +1,5 @@
-{%extends "header.html"%}{%block content%}
+{%extends "project/header.html"%}{%block content%}
+{%load css_filter%}
 <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/animate.min.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
@@ -29,22 +30,23 @@
                 <div class="form-group">
                     <label class="control-label" for="project_name">Project Name</label>
                     <div class="controls">
-                        {{form.name}}
+                        {{form.name|addClass:'form-control input-md'}}
                     </div>
                 </div>
                 <!-- Textarea -->
+                
                 <div class="form-group">
                     <label class="control-label" for="project_desc">One Line Project Description</label>
                     <div class="controls">
-                        {{form.desc}}
+                        {{form.desc|addClass:'form-control input-md'}}
                     </div>
                 </div>
-
+                
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="control-label" for="money_req">Money Required</label>
                     <div class="controls">
-                        {{form.money_req}}
+                        {{form.money_req|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -52,7 +54,7 @@
                 <div class="form-group">
                     <label class="control-label" for="days_req">Days required</label>
                     <div class="controls">
-                        {{form.days_req}}
+                        {{form.days_req|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -60,14 +62,14 @@
                 <div class="form-group">
                     <label class="control-label" for="img_link">Upload image:</label>
                     <div class="controls">
-                        {{form.photo}}
+                        {{form.photo|addClass:'btn btn-md btn-primary'}}
                     </div>
                 </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="control-label" for="video_link">Link to video:</label>
                     <div class="controls">
-                        {{form.video_link}}
+                        {{form.video_link|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -75,7 +77,7 @@
                 <div class="form-group">
                     <label class="control-label" for="details">Detailed Explanation:</label>
                     <div class="controls">
-                        {{form.details}}
+                        {{form.details|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -83,15 +85,26 @@
                 <div class="form-group">
                     <label class="control-label" for="project_use">Project Use:</label>
                     <div class="controls">
-                        {{form.project_use}}
+                        {{form.project_use|addClass:'form-control input-md'}}
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="" class="control-label">Number of options</label>
+                        <div class="controls">
+                            <select name="number_of_options" id="number_of_options" onchange="change();">
+                                <option value="-1">Select number</option>
+                                {%for i in "xxxxx"%}<option value="{{forloop.counter}}">{{forloop.counter}}</option>{%endfor%}
+                            </select>
+                        </div>
+                </div>
+                <div class="form-group" id="pledge_options" style="display:none;">
+                    
+                </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="control-label" for="pledge2">Pledge Amount 1:</label>
                     <div class="controls">
-                        {{form.pledge1}}
+                        {{form.pledge1|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -99,7 +112,7 @@
                 <div class="form-group">
                     <label class="control-label" for="pledge1">Pledge Amount 2:</label>
                     <div class="controls">
-                        {{form.pledge2}}
+                        {{form.pledge2|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -107,7 +120,7 @@
                 <div class="form-group">
                     <label class="control-label" for="pledge3">Pledge Amount 3:</label>
                     <div class="controls">
-                        {{form.pledge3}}
+                        {{form.pledge3|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -115,7 +128,7 @@
                 <div class="form-group">
                     <label class="control-label" for="pledge4">Pledge Amount 4:</label>
                     <div class="controls">
-                        {{form.pledge4}}
+                        {{form.pledge4|addClass:'form-control input-md'}}
                     </div>
                 </div>
 
@@ -123,7 +136,7 @@
                 <div class="form-group">
                     <label class="control-label" for="submit"></label>
                     <div class="controls">
-                        <input type="submit" id="submit" name="submit" class="btn btn-success">
+                        <input type="submit" id="submit" name="submit" class="btn btn-success" value="Submit">
                     </div>
                 </div>
 
@@ -146,4 +159,11 @@
 <script src="{{STATIC_URL}}js/jquery.appear.min.js"></script>
 <script src="{{STATIC_URL}}js/twitterFetcher.min.js"></script>
 <script src="{{STATIC_URL}}js/script.js"></script>
+<script>
+    function change () {
+        $('#pledge_options').append();
+        $('#pledge_options').show();
+
+    }
+</script>
 {% endblock %}
