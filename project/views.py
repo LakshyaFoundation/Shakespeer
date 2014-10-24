@@ -1,5 +1,5 @@
 from django.shortcuts import render,render_to_response
-from project.models import Project,Pledger,ProjectUpdates
+from project.models import Project,Pledger,ProjectUpdate
 from django.contrib import messages
 from django.http import Http404,HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -11,7 +11,7 @@ from django.utils import timezone
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from project.forms import ProjectForm
-
+import json
 # Create your views here.
 def create_project(request):
 	form = ProjectForm() # A empty, unbound form
@@ -28,7 +28,7 @@ def show_project_page(request,id):
 	current_date=timezone.make_aware(datetime.datetime.now(),timezone.get_default_timezone())
 	for item in projects:
 		pledgers=Pledger.objects.filter(project_id=item.project_id).count()
-		updates=ProjectUpdates.objects.filter(project_id=id).select_related()
+		updates=ProjectUpdate.objects.filter(project_id=id).select_related()
 		for update_item in updates:
 			item.update=update_item.content
 		item.backers=pledgers
@@ -47,7 +47,12 @@ def show_project_page(request,id):
 			item.days_left=item.days_req-diff.days
 		else:
 			item.days_elapsed=diff.days-item.days_req
-
+		decoded_pledge_values=json.loads(item.pledge_value)
+		decoded_pledge_rewards=json.loads(item.pledge_reward)
+		print item.pledge_reward
+		item.pledge_values=decoded_pledge_values
+		item.pledge_rewards=decoded_pledge_rewards
+		item.pledge=zip(item.pledge_values,item.pledge_rewards)
 	return render(request,'project/projectpage.html',{'project':projects,'title':title,'current_page':current_page})
 
 def show_project(request):
@@ -87,8 +92,8 @@ def save_project(request,**kwargs):
 	if request.method == 'POST':
 		user=request.user
 		form = ProjectForm(request.POST, request.FILES)
-		# print form.is_valid()
-		# print form.errors
+		print form.is_valid()
+		print form.errors
     	if form.is_valid():
     		project=form.save(commit=False)
     		project.user=user

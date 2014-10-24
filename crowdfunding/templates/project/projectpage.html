@@ -76,34 +76,18 @@
                     <article>{{item.details}}</article>
                 </div>
                 <hr>
+                
                 <div class="container">
-
+                    {%for pledge_value,reward in item.pledge%}
                     <div class="col-md-3 thumbnail">
-                        <h3>Pledge 1</h3>
-                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
+                        <h3>Pledge {{forloop.counter}}</h3>
+                        <p class="note">{{reward}}
                             <br>
-                            <span class="fa fa-inr"></span>{{item.pledge1}}</p>
-                    </div>
-                    <div class="col-md-3 thumbnail">
-                        <h3>Pledge 2</h3>
-                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
-                            <br>
-                            <span class="fa fa-inr"></span>{{item.pledge2}}</p>
-                    </div>
-                    <div class="col-md-3 thumbnail">
-                        <h3>Pledge 3</h3>
-                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
-                            <br>
-                            <span class="fa fa-inr"></span>{{item.pledge3}}</p>
-                    </div>
-                    <div class="col-md-3 thumbnail">
-                        <h3>Pledge 4</h3>
-                        <p class="note">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ducimus, obcaecati earum eum quae voluptatibus nostrum magni aliquam quo tempora, nulla libero ipsam nemo est necessitatibus autem accusantium eveniet.
-                            <br>
-                            <span class="fa fa-inr"></span>{{item.pledge4}}</p>
-                    </div>
+                            <span class="fa fa-inr"></span>{{pledge_value}}</p>
+                    </div>{%endfor%}
+                    
                     <div class="campaign-content">
-                    <p>hello</p>
+                    <!-- <p>hello</p> -->
                     </div>
                 </div>
                 <!-- end container -->

@@ -9,3 +9,6 @@ class ProjectForm(ModelForm):
   class Meta:
     model = Project
     exclude = ("user",)
+    number_of_options = forms.IntegerField(widget=forms.HiddenInput())
+    pledge_value = forms.CharField(widget=forms.HiddenInput())
+    pledge_reward = forms.CharField(widget=forms.HiddenInput())

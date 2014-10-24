@@ -13,10 +13,9 @@ class Project(models.Model):
 	video_link=models.URLField(max_length=1000)
 	details=models.TextField(max_length=4000)
 	project_use=models.CharField(max_length=100)
-	pledge1=models.IntegerField(default=0)
-	pledge2=models.IntegerField(default=0)
-	pledge3=models.IntegerField(default=0)
-	pledge4=models.IntegerField(default=0)
+	number_of_options=models.IntegerField(default=1)
+	pledge_value=models.TextField(max_length=1000)
+	pledge_reward=models.TextField(max_length=8000)
 	date=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User)
 	def __unicode__(self):
@@ -28,9 +27,9 @@ class Pledger(models.Model):
 	project=models.ForeignKey(Project,related_name='pledge_project_id')
 	amount_pledged=models.IntegerField(default=0)
 	def __unicode__(self):
-		return str(self.pid)
+		return str(self.pid)+' '+str(self.pledger)+' '+str(self.project)
 
-class ProjectUpdates(models.Model):
+class ProjectUpdate(models.Model):
 	id=models.AutoField(primary_key=True)
 	content = models.TextField(max_length = 4000)
 	date = models.DateTimeField(auto_now_add = True)
