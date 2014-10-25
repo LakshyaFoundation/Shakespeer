@@ -65,9 +65,7 @@
 
                     </div>
                     <div class="col-md-6">
-                        <div id="video" style="width:50%; margin: 0px auto;">
-                            <iframe width='512' height='385' src="{{item.video_link}}"></iframe>
-                        </div>
+                        <object width="512" height="380" data="{{item.video_link}}" type="application/x-shockwave-flash" style="z-index:-10000;"><param name="src" value="{{item.video_link}}" /></object>
                     </div>
                 </div>
                 <hr>
@@ -96,8 +94,7 @@
                     <div class="col-md-12">
                         <h3>Risks &amp; Challenges</h3>
                         <article class="note">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nesciunt, reprehenderit ex, inventore cumque, excepturi voluptatibus rerum cum impedit dicta in iure. Praesentium esse, nihil voluptatum sed doloribus repellat consequatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi suscipit dolorum necessitatibus, sunt nulla error nihil distinctio ipsa reprehenderit odio enim, minus repellendus aperiam mollitia explicabo repellat, quis molestiae atque.
-                            <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque mollitia repellendus nesciunt dolorem nihil esse minima. Nulla corporis quam impedit soluta ea, commodi distinctio quos! Culpa quaerat a voluptas eligendi?
+                            {{item.risks_and_challenges}}
                         </article>
                     </div>
                 </div>
@@ -164,9 +161,8 @@
                     </div>
                 </div>
 
-                <hr>
                 <div class="container" >
-                    {% if user.is_authenticated %}
+                    {% if user.is_authenticated and not item.is_pledger and not item.is_uploader%}
 
                     <div class="big_wrapper">
                         <div class="wrapper center" id="middle_reserve" style="">
@@ -174,7 +170,12 @@
                             <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_pledge" id="pledge" style="display:none;">{%csrf_token%}
                                 <div class="form-group">
                                     <input type="hidden" value="{{item.project_id}}" name="pid">
-                                    <input class="form-control" type="text" placeholder="Enter pledge amount" name="amount">
+                                    <select name="amount" class="form-control">
+                                        <option value="-1">Select pledge amount</option>
+                                        {%for a,b in item.pledge%}
+                                        <option value="{{a}}">{{a}}</option>
+                                        {%endfor%}
+                                    </select>
                                     <input type="submit" value="Submit">
                                 </div>
                             </form>
@@ -184,7 +185,8 @@
                         </div>
 
                     </div>
-
+                    {%elif item.is_pledger%} <center><h4>You have already pledged!!</h4></center>
+                    {%elif item.is_uploader%}<center><h4>Uploader cannot pledge their own projects!</h4></center>
                     {% endif %}{%endfor%}{% endif %}
 
                 </div>

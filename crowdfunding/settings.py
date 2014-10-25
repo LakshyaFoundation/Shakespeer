@@ -107,7 +107,7 @@ AUTHENTICATION_BACKENDS = (
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = "/home/kranthi/Documents/Django-learn/Shakespeer/media/"
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'../media').replace('\\','/')
 
 MEDIA_URL = "/media/"
 

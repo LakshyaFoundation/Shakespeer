@@ -1,7 +1,7 @@
 from django.shortcuts import render,render_to_response
 from project.models import Project,Pledger,ProjectUpdate
 from django.contrib import messages
-from django.http import Http404,HttpResponseRedirect
+from django.http import Http404,HttpResponseRedirect,HttpResponse
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
@@ -10,8 +10,8 @@ import datetime
 from django.utils import timezone
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
-from project.forms import ProjectForm
-import json
+from project.forms import ProjectForm,UpdateForm
+import json,re
 # Create your views here.
 def create_project(request):
 	form = ProjectForm() # A empty, unbound form
@@ -27,6 +27,8 @@ def show_project_page(request,id):
 	projects=Project.objects.filter(project_id=id).select_related()
 	current_date=timezone.make_aware(datetime.datetime.now(),timezone.get_default_timezone())
 	for item in projects:
+		if item.user==request.user:
+			item.is_uploader=True
 		pledgers=Pledger.objects.filter(project_id=item.project_id).count()
 		updates=ProjectUpdate.objects.filter(project_id=id).select_related()
 		for update_item in updates:
@@ -49,10 +51,13 @@ def show_project_page(request,id):
 			item.days_elapsed=diff.days-item.days_req
 		decoded_pledge_values=json.loads(item.pledge_value)
 		decoded_pledge_rewards=json.loads(item.pledge_reward)
-		print item.pledge_reward
 		item.pledge_values=decoded_pledge_values
 		item.pledge_rewards=decoded_pledge_rewards
 		item.pledge=zip(item.pledge_values,item.pledge_rewards)
+		pledgers=Pledger.objects.filter(project_id=item.project_id)
+		for row in pledgers:
+			if row.pledger==request.user:
+				item.is_pledger=True
 	return render(request,'project/projectpage.html',{'project':projects,'title':title,'current_page':current_page})
 
 def show_project(request):
@@ -82,7 +87,6 @@ def pledge(request):
 		amount=int(request.POST.get('amount',False))
 		proj_id=int(request.POST.get('pid',False))
 		pledger_id=int(request.POST.get('uid',False))
-		print pledger_id
 		pledge=Pledger.objects.pledge(pledger_id,proj_id,amount)
 		pledge.save()
 		messages.info(request,'Your pledge has been recorded')
@@ -97,6 +101,9 @@ def save_project(request,**kwargs):
     	if form.is_valid():
     		project=form.save(commit=False)
     		project.user=user
+    		link=project.video_link
+    		video_code=re.findall(r'v\=([\-\w]+)', ytlink )[0]
+    		project.video_link="//www.youtube.com/v/"+str(video_code)
     		project.save()
     		messages.info(request,'Project has been successfully created')
     		return HttpResponseRedirect('/project')
@@ -111,7 +118,6 @@ def _pledge(request):
 		project=Project()
 		for item in proj:
 			project=item
-			print type(item)
 		pledge=Pledger()
 		pledge.pledger=request.user
 		pledge.project=project
@@ -119,5 +125,44 @@ def _pledge(request):
 		pledge.save()
 		messages.info(request,'Your pledge has been recorded')
 		return HttpResponseRedirect('/project/show/'+str(proj_id))
-def list(request):
-	pass
+def update_project(request):
+	projects=Project.objects.filter(user=request.user)
+	return render(request,"project/project_updates.html",{'projects':projects})
+def get_update_content(request):
+	if request.method=="POST":
+		pid=request.POST.get('proj')
+		updates=ProjectUpdate.objects.filter(project_id=pid).select_related()
+		print pid
+		content=""
+		for update in updates:
+			content=update.content
+		response_data = {}
+		response_data['result'] = content
+		response_data['message'] = "right in the eye"
+		return HttpResponse(json.dumps(response_data), content_type="application/json")
+	else:
+		print "not post"
+
+def save_project_update(request):
+	if request.method=="POST":
+		content = request.POST.get('content')
+		pid = request.POST.get('project')
+
+		proj = Project.objects.filter(project_id=pid).select_related()
+		project=Project()
+		for item in proj:
+			project=item
+		check_project_update=ProjectUpdate.objects.filter(project_id=project)
+		update=ProjectUpdate()
+		if check_project_update:
+			for item in check_project_update:
+				update=item
+			update.content=content
+			update.save()
+			messages.info(request,'Project Update has been successfully added')
+		else:
+			update.content=content
+			update.project_id=project
+			update.save()
+			messages.info(request,'Project Update has been successfully added')
+    	return HttpResponseRedirect('/project')

@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import widgets
 from django.forms import ModelForm
-from project.models import Project
+from project.models import Project,ProjectUpdate
 from django.contrib.auth.models import User
 
 class ProjectForm(ModelForm):
@@ -12,3 +12,9 @@ class ProjectForm(ModelForm):
     number_of_options = forms.IntegerField(widget=forms.HiddenInput())
     pledge_value = forms.CharField(widget=forms.HiddenInput())
     pledge_reward = forms.CharField(widget=forms.HiddenInput())
+
+class UpdateForm(ModelForm):
+
+	class Meta:
+		model = ProjectUpdate
+		exclude = ("project_id",)

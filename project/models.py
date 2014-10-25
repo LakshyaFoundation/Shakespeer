@@ -13,6 +13,7 @@ class Project(models.Model):
 	video_link=models.URLField(max_length=1000)
 	details=models.TextField(max_length=4000)
 	project_use=models.CharField(max_length=100)
+	risks_and_challenges=models.TextField(max_length=4000)
 	number_of_options=models.IntegerField(default=1)
 	pledge_value=models.TextField(max_length=1000)
 	pledge_reward=models.TextField(max_length=8000)
@@ -36,4 +37,4 @@ class ProjectUpdate(models.Model):
 	project_id = models.ForeignKey(Project)
 
 	def __unicode__(self):
-		return str(self.id)
+		return str(self.project_id)
