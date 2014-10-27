@@ -102,7 +102,7 @@ def save_project(request,**kwargs):
     		project=form.save(commit=False)
     		project.user=user
     		link=project.video_link
-    		video_code=re.findall(r'v\=([\-\w]+)', ytlink )[0]
+    		video_code=re.findall(r'v\=([\-\w]+)', link )[0]
     		project.video_link="//www.youtube.com/v/"+str(video_code)
     		project.save()
     		messages.info(request,'Project has been successfully created')
