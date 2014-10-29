@@ -72,7 +72,17 @@ WSGI_APPLICATION = 'crowdfunding.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-from databases import DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'crowdfunding',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -106,8 +116,11 @@ AUTHENTICATION_BACKENDS = (
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'sitestatic')
 
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'../media').replace('\\','/')
+#MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'../media').replace('\\','/')
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'../media')
+
 
 MEDIA_URL = "/media/"
 
@@ -115,7 +128,9 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.dirname(__file__),'static').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__),'static'),
+    #'/opt/lakshya/Shakespeer/crowdfunding/static',
+    os.path.join(BASE_DIR, 'crowdfunding/static')
 )
 
 LOGGING = {
@@ -146,8 +161,8 @@ TEMPLATE_DIRS = ('crowdfunding/templates',)
 
 # Load the local settings
 # This should be at the end for overriding
-# try:
-#     from .settings_local import *
-# except ImportError:
-#     print "You don't have a settings_local file"
-#     raise
+try:
+     from .settings_local import *
+except ImportError:
+     print "You don't have a settings_local file"
+     raise

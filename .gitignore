@@ -1,3 +1,4 @@
 venv/
 media/
 *.pyc
+crowdfunding/settings_local.py
