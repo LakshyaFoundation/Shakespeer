@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'south',
     'main',
-    'auth',
+#    'auth',
     'project',
     )
 
