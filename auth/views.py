@@ -45,7 +45,7 @@ def register(request):
 
 def create_user(request):
 	if request.method=="POST":
-		username=request.POST['display_name']
+		username=request.POST['email']
 		password=request.POST['password']
 		firstname=request.POST['first_name']
 		lastname=request.POST['last_name']
