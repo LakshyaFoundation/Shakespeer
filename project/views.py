@@ -69,7 +69,7 @@ def show_project(request):
 		pledger=Pledger.objects.filter(project_id=item.project_id ).aggregate(Sum('amount_pledged'))
 		for key,value in pledger.iteritems():
 			if not value is None:
-				item.percent=(100*(float(value)/float(item.money_req)))
+				item.percent=int(100*(float(value)/float(item.money_req)))
 				item.amount_pledged=value
 			else:
 				item.percent=0
