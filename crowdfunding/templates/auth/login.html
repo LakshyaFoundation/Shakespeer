@@ -21,15 +21,12 @@
                     </div>
                     <div class="col-xs-6 col-md-6"><a href="{{BASE_URL}}/auth/register" class="btn btn-success btn-block btn-lg">Don't have an ID ? Register Now</a>
                     </div>
-                    <div class="col-xs-12 col-md-12">
-                        <input type="submit" value="Login with Facebook" class="btn btn-primary btn-block btn-lg" tabindex="7" id="facebook-button">
-                    </div>
-                    <div class="col-xs-12 col-md-12">
-                        <input type="submit" value="Login with Google+" class="btn btn-primary btn-block btn-lg" tabindex="7" id="googleplus-button">
-                    </div>
-                    <div class="col-xs-12 col-md-12">
-                        <input type="submit" value="Login with Twitter" class="btn btn-primary btn-block btn-lg" tabindex="7" id="twitter-button">
-                    </div>
+                    <a href="{% url 'socialauth_begin' 'facebook' %}">
+              <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Facebook" class="btn btn-primary btn-block btn-lg" tabindex="7" id="facebook-button"></div>
+              </a>
+              <a href="{% url 'socialauth_begin' 'google-oauth2' %}">
+              <div class="col-xs-12 col-md-12"><input type="submit" value="Login with Google+" class="btn btn-primary btn-block btn-lg" tabindex="7" id="googleplus-button"></div>
+              </a>
                 </div>
             </form>
         </div>

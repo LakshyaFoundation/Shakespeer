@@ -24,14 +24,17 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-FACEBOOK_APP_ID              = '1491007234499273'
-FACEBOOK_API_SECRET          = '4d66a689da751a7d5eeef54381a16c23'
 LOGIN_URL          = '/login/'
 LOGIN_REDIRECT_URL = '/project/'
 #LOGIN_ERROR_URL    = '/login-error/'
+FACEBOOK_APP_ID              = '1491007234499273'
+FACEBOOK_API_SECRET          = '4d66a689da751a7d5eeef54381a16c23'
+
+GOOGLE_OAUTH2_CLIENT_ID = '644166177318-3bcif9eb1k4oe18avmc2sucr0o3e61as.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'iQ4XxxHStUuz0iwO8UgQKuhP'
 
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
-SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_UID_LENGTH = 128
 SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
 SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
@@ -122,6 +125,7 @@ AUTHENTICATION_BACKENDS = (
     # 'social.backends.google.GoogleOAuth',
     # 'social.backends.twitter.TwitterOAuth',
     # 'social.backends.yahoo.YahooOpenId',
+    'social_auth.backends.google.GoogleOAuth2Backend',
     'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend', # for django.contrib.auth username and password
 )
