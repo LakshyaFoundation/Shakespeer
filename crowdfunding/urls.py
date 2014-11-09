@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^project/pledge$', 'project.views.pledge'),
     url(r'^project/save_pledge$', 'project.views._pledge'),
     url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile'),
+    url(r'', include('social_auth.urls')),
 )
 
 from django.conf import settings

@@ -24,8 +24,21 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
+FACEBOOK_APP_ID              = '1491007234499273'
+FACEBOOK_API_SECRET          = '4d66a689da751a7d5eeef54381a16c23'
+LOGIN_URL          = '/login/'
+LOGIN_REDIRECT_URL = '/project/'
+#LOGIN_ERROR_URL    = '/login-error/'
 
-
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook', 'google')
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 # Application definition
 
 INSTALLED_APPS = (
@@ -41,6 +54,7 @@ INSTALLED_APPS = (
     'main',
     'auth',
     'project',
+    'social_auth',
     )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -54,6 +68,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     # context processors for 'myproject'
     "crowdfunding.context_processors.baseurl",
+    "social_auth.context_processors.social_auth_by_type_backends",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,12 +117,12 @@ USE_TZ = True
 
 AUTHENTICATION_BACKENDS = (
     # 'social.backends.open_id.OpenIdAuth',
-    # 'social.backends.google.GoogleOpenId',
-    # 'social.backends.google.GoogleOAuth2',
+    #  'social_auth.backends.google.GoogleOpenId',
+    #  'social_auth.backends.google.GoogleOAuth2',
     # 'social.backends.google.GoogleOAuth',
     # 'social.backends.twitter.TwitterOAuth',
     # 'social.backends.yahoo.YahooOpenId',
-    # 'social.backends.facebook.FacebookOAuth',
+    'social_auth.backends.facebook.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend', # for django.contrib.auth username and password
 )
 
