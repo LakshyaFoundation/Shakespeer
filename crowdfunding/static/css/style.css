@@ -378,13 +378,55 @@ a:focus {
   margin-top: 2px;
 }
 #facebook-button {
-  background-color:#44619D;
+  width: 300px;
+  padding: 5px;
+  /*background-color:#44619D;*/
 }
 #googleplus-button {
-  background-color: #D73D32;
-  border: #D73D32;
+  /*background-color: #D73D32;*/
+  /*background-image: url(../img/google_signin_Long_base.png);*/
+  padding: 5px;
+  width: 300px;
 }
 #twitter-button {
   background-color: #55ACEE;
   border:#55ACEE;
+}
+#git-button {
+  background-color: #55ACEE;
+  border:#55ACEE;
+}
+#linkedin-button {
+  background-color: #55ACEE;
+  border:#55ACEE;
+}
+
+#login_main {
+  width:700px;
+  margin:0 auto;
+}
+
+#social_login{
+  float:left;
+  width:330px;
+  padding:0px;
+  border-right: solid 1px #e3e3e3;
+}
+
+#manual_login{
+  float:right;
+  width:350px;
+}
+
+
+#login_button{
+  float: none;    
+  margin:0 auto;
+  display:block;
+
+}
+#login_page_hyperlink_text{
+  font-size: 12pt;
+  padding: 10px;
+  text-decoration: underline;
 }

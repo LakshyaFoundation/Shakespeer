@@ -2,37 +2,44 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
 <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+<div id="login_main">
+    <!--div class="row"-->
+        <!--div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3"-->
             <form action="{{BASE_URL}}/auth/_login" method="POST">{% csrf_token %} {%if not user.is_authenticated%}
                 <h2>Login</h2>
                 <hr class="colorgraph">
-                <div class="form-group">
-                    <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username / Email" tabindex="3">
+                
+                <div id="social_login">
+                   <a href="{% url 'socialauth_begin' 'facebook' %}"><img id="facebook-button" src="{{STATIC_URL}}/img/facebook.png"/>
+                  <!--div class="col-xs-12 col-md-12"><input type="" value="Sign Up with Facebook" class="btn btn-primary btn-block btn-lg" tabindex="7" id="facebook-button"></div-->
+                  </a>
+                  <a href="{% url 'socialauth_begin' 'google-oauth2' %}"> <img id="googleplus-button" src="{{STATIC_URL}}/img/google.png"/></a>
+                  <!--div class="col-xs-12 col-md-12"><input type="" value="Sign Up with Google+" class="btn btn-primary btn-block btn-lg" tabindex="7" id="googleplus-button"></div-->
+                  <div id="login_page_hyperlink_text"><a href="{{BASE_URL}}/auth/register" class="">Or Register with your Email</a>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
-                </div>
-                <hr class="colorgraph">
-                <div class="row">
-                    <div class="col-xs-6 col-md-6">
-                        <input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="7">
+
+                <div id="manual_login">
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username" tabindex="3">
                     </div>
-                    <div class="col-xs-6 col-md-6"><a href="{{BASE_URL}}/auth/register" class="btn btn-success btn-block btn-lg">Don't have an ID ? Register Now</a>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
                     </div>
-                    <a href="{% url 'socialauth_begin' 'facebook' %}">
-              <div class="col-xs-12 col-md-12"><input type="" value="Login with Facebook" class="btn btn-primary btn-block btn-lg" tabindex="7" id="facebook-button"></div>
-              </a>
-              <a href="{% url 'socialauth_begin' 'google-oauth2' %}">
-              <div class="col-xs-12 col-md-12"><input type="" value="Login with Google+" class="btn btn-primary btn-block btn-lg" tabindex="7" id="googleplus-button"></div>
-              </a>
+                    <div class="row" >
+                        <div class="col-xs-6 col-md-6" id="login_button" align="center">
+                            <input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="7">
+                        </div>
+                    </div>
                 </div>
+                
             </form>
-        </div>
-    </div>
+
+        <!--/div-->
+    <!--/div-->
 
 </div>
+<!--hr class="colorgraph"-->
 {%else%}
 <div class="jumbotron">
     <h1>You are logged in</h1>
