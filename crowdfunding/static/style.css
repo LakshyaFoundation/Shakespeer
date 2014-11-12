@@ -126,17 +126,44 @@ section h1 .red {
     color: #e41f3a
 }
 #highlights {
-    height: 700px;
-    background: url(formas.png) no-repeat bottom center #ffc153;
+    height: 150px;
+    width:100%;
+    /*url(formas.png) no-repeat bottom center */
+    background: #ffc153;
     overflow: hidden
 }
 #highlights .outerindent-title {
     float: left;
-    width: 360px;
+    width: 60%;
     color: #fff
 }
+
+#highlights .know-more {
+    text-align: center;
+    float: left;
+    margin-top: 50px;
+    /*padding-left: 0px;
+    width: 200px;
+    height: 100px;
+    line-height: 85px;*/
+    background: #0dc4e0;
+    width: 20%;
+    padding: 15px;
+    /*background: url(btn-inscreva-se.png) no-repeat top;*/
+    font-family: "Batman";
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /*opacity: 0;*/
+    
+    color: #fff;
+}
+#highlights .blank-space {
+    width: 20%;
+    float: right;
+}
 #highlights .outerindent-title .title1 {
-    margin-top: 80px;
+    margin-top: 40px;
     font-size: 30px;
     line-height: 32px;
     letter-spacing: 0px;
@@ -149,12 +176,12 @@ section h1 .red {
 }
 #highlights .outerindent-title .description {
     font-size: 20px;
-    line-height: 28px;
+    /*line-height: 28px;
     letter-spacing: -1px;
     margin-top: 80px;
     opacity: 0;
     margin-left: -50px;
-    width: 405px
+    width: 405px*/
 }
 #highlights .outerindent-title .learn-more {
     margin-top: 60px;
@@ -381,7 +408,7 @@ h2 {
 }
 .phases {
     overflow: hidden;
-    margin-top: 60px;
+    margin-top: 0px;
     margin: 0 auto;
     position: relative
 }
@@ -391,7 +418,7 @@ h2 {
     margin-right: 40px;
     margin-left: 40px;
     position: relative;
-    margin-top: 80px
+    margin-top: 30px
 }
 .phases .phase .num {
     width: 131px;
@@ -1560,18 +1587,18 @@ section h1 .number {
 section h1 .red {
     color: #e41f3a
 }
-#highlights {
-    height: 700px;
+/*#highlights {
+    height: 200px;
     background: url(formas.png) no-repeat bottom center #ffc153;
     overflow: hidden
 }
 #highlights .outerindent-title {
     float: left;
-    width: 360px;
+    width: 400px;
     color: #fff
 }
 #highlights .outerindent-title .title1 {
-    margin-top: 80px;
+    margin-top: 40px;
     font-size: 30px;
     line-height: 32px;
     letter-spacing: 0px;
@@ -1619,7 +1646,7 @@ section h1 .red {
     height: 634px;
     float: right;
     margin-right: -200px;
-    margin-top: -50px
+    margin-top: -50px 
 }
 #about {
     min-height: 400px;
@@ -1903,7 +1930,7 @@ h2 {
 .phases p {
     text-align: center;
     font-size: 14px
-}
+}*/
 .divisoria {
     height: 19px;
     width: 100%;
