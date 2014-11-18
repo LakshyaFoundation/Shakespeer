@@ -125,6 +125,21 @@ def _pledge(request):
 		pledge.save()
 		messages.info(request,'Your pledge has been recorded')
 		return HttpResponseRedirect('/project/show/'+str(proj_id))
+
+def update_pledge(request):
+	if request.method == "POST":
+		proj_id=int(request.POST.get('pid',False))
+		amount = int(request.POST.get('amount',False))
+		proj = Project.objects.filter(project_id=proj_id)
+		project = Project()
+		for item in proj:
+			project=item
+		pledge = Pledger.objects.filter(project=project,pledger=request.user)
+		pledge.amount_pledged = amount;
+		pledge.save()
+		messages.info(request,'Your pledge has been updated')
+		return HttpResponseRedirect('/project/show/'+str(proj_id))
+		
 def update_project(request):
 	projects=Project.objects.filter(user=request.user)
 	return render(request,"project/project_updates.html",{'projects':projects})

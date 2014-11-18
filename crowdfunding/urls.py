@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^project/save_project$', 'project.views.save_project'),
     url(r'^project/pledge$', 'project.views.pledge'),
     url(r'^project/save_pledge$', 'project.views._pledge'),
+    url(r'^project/update_pledge$', 'project.views.update_pledge'),
     url(r'^profile/(?P<uid>[0-9]+)$', 'auth.views.profile',name='profile'),
     url(r'', include('social_auth.urls')),
 )
