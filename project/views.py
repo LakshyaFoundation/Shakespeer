@@ -134,12 +134,15 @@ def update_pledge(request):
 		project = Project()
 		for item in proj:
 			project=item
-		pledge = Pledger.objects.filter(project=project,pledger=request.user)
+		pledge = Pledger()
+		pled = Pledger.objects.filter(project=project,pledger=request.user)
+		for item in pled:
+			pledge = item
 		pledge.amount_pledged = amount;
 		pledge.save()
 		messages.info(request,'Your pledge has been updated')
 		return HttpResponseRedirect('/project/show/'+str(proj_id))
-		
+
 def update_project(request):
 	projects=Project.objects.filter(user=request.user)
 	return render(request,"project/project_updates.html",{'projects':projects})
