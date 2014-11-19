@@ -95,7 +95,7 @@
                         {{form.project_use|addClass:'form-control input-md'}}
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="" class="control-label">Number of options</label>
                     <div class="controls">
                         <select name="num_of_options" id="num_of_options" onchange="change(this);">
@@ -104,14 +104,14 @@
                             <option value="{{forloop.counter}}">{{forloop.counter}}</option>{%endfor%}
                         </select>
                     </div>
-                </div>
-                <input type="hidden" name="number_of_options" id="number_of_options">
+                </div> -->
+               <!--  <input type="hidden" name="number_of_options" id="number_of_options">
                 <input type="hidden" name="pledge_value" id="pledge_value">
                 <input type="hidden" name="pledge_reward" id="pledge_reward">
-                <!-- Look at the script bro -->
+                <!-- Look at the script bro ->
                 <div id="pledge_options" style="display:none;">
                 
-                </div>
+                </div> -->
                 <!-- End of pledging and swearing -->
                 <!-- Button -->
                 <div class="form-group">
@@ -124,51 +124,51 @@
                 </fieldset>
             </form>
         </div>
-        <script>
-        function change(item) {
-            var k = item;
-            var len = ~~(k.value);
-            var cont = "";
-            $('#pledge_options').html("");
-            for (var i = 0; i < len; i++) {
-                cont += "<div class='form-group'>";
-                cont += "<label class='control-label'>Pledge " + (i + 1) + "</label>";
-                cont += "<div class='controls'><input class='form-control input-md' type='text' id='pledge" + (i + 1) + "' name='pledge"+(i+1)+"'/></div>";
-                cont += "<label class='control-label'>Reward " + (i + 1) + "</label>";
-                cont +="<div class='controls'><input class='form-control input-md' type='text' id='reward"+(i+1)+"'name='reward"+(i+1)+"'/></div>";
-                cont += "</div>";
-            };
-            $('#pledge_options').append(cont);
-            $('#pledge_options').show();
-        }
-        function form_submit(){
-            var t=document.getElementById('project_form');
-            var k=(document.getElementById('num_of_options').value);
-            k=~~k;
-            $('#number_of_options').val(k);
-            // document.getElementById('number_of_options').value=k;
-            alert($('#number_of_options').val());
-            var pledge_value="[";
-            var pledge_reward="[";
-            for (var i = 0; i < k; i++) {
-                if(i!=k-1){
-                pledge_value+=(document.getElementById('pledge'+(i+1)).value+',');
-                pledge_reward+=('"'+document.getElementById('reward'+(i+1)).value+'",');
-                }
-                else{
-                 pledge_value+=(document.getElementById('pledge'+(i+1)).value);
-                 pledge_reward+=('"'+document.getElementById('reward'+(i+1)).value+'"');   
-                }
-            };
-            pledge_value+="]";
-            pledge_reward+="]";
-            console.log(pledge_value);
-            console.log(pledge_reward);
-            document.getElementById('pledge_value').value=pledge_value;            
-            document.getElementById('pledge_reward').value=pledge_reward;
-            document.getElementById('project_form').submit();
-        }
-        </script>
+        <!--script>
+        // function change(item) {
+        //     var k = item;
+        //     var len = ~~(k.value);
+        //     var cont = "";
+        //     $('#pledge_options').html("");
+        //     for (var i = 0; i < len; i++) {
+        //         cont += "<div class='form-group'>";
+        //         cont += "<label class='control-label'>Pledge " + (i + 1) + "</label>";
+        //         cont += "<div class='controls'><input class='form-control input-md' type='text' id='pledge" + (i + 1) + "' name='pledge"+(i+1)+"'/></div>";
+        //         cont += "<label class='control-label'>Reward " + (i + 1) + "</label>";
+        //         cont +="<div class='controls'><input class='form-control input-md' type='text' id='reward"+(i+1)+"'name='reward"+(i+1)+"'/></div>";
+        //         cont += "</div>";
+        //     };
+        //     $('#pledge_options').append(cont);
+        //     $('#pledge_options').show();
+        // }
+        // function form_submit(){
+        //     var t=document.getElementById('project_form');
+        //     var k=(document.getElementById('num_of_options').value);
+        //     k=~~k;
+        //     $('#number_of_options').val(k);
+        //     // document.getElementById('number_of_options').value=k;
+        //     alert($('#number_of_options').val());
+        //     var pledge_value="[";
+        //     var pledge_reward="[";
+        //     for (var i = 0; i < k; i++) {
+        //         if(i!=k-1){
+        //         pledge_value+=(document.getElementById('pledge'+(i+1)).value+',');
+        //         pledge_reward+=('"'+document.getElementById('reward'+(i+1)).value+'",');
+        //         }
+        //         else{
+        //          pledge_value+=(document.getElementById('pledge'+(i+1)).value);
+        //          pledge_reward+=('"'+document.getElementById('reward'+(i+1)).value+'"');   
+        //         }
+        //     };
+        //     pledge_value+="]";
+        //     pledge_reward+="]";
+        //     console.log(pledge_value);
+        //     console.log(pledge_reward);
+        //     document.getElementById('pledge_value').value=pledge_value;            
+        //     document.getElementById('pledge_reward').value=pledge_reward;
+        //     document.getElementById('project_form').submit();
+        // }
+        // </script> -->
         {%else%}
         <div class="jumbotron">
             <p class="lead">You must be logged in to create a project.</p>

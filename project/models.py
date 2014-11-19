@@ -14,9 +14,9 @@ class Project(models.Model):
 	details=models.TextField(max_length=4000)
 	project_use=models.CharField(max_length=100)
 	risks_and_challenges=models.TextField(max_length=4000)
-	number_of_options=models.IntegerField(default=1)
-	pledge_value=models.TextField(max_length=1000)
-	pledge_reward=models.TextField(max_length=8000)
+#	number_of_options=models.IntegerField(default=1)
+#	pledge_value=models.TextField(max_length=1000)
+#	pledge_reward=models.TextField(max_length=8000)
 	date=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User)
 	def __unicode__(self):

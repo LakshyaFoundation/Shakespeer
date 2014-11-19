@@ -49,11 +49,11 @@ def show_project_page(request,id):
 			item.days_left=item.days_req-diff.days
 		else:
 			item.days_elapsed=diff.days-item.days_req
-		decoded_pledge_values=json.loads(item.pledge_value)
-		decoded_pledge_rewards=json.loads(item.pledge_reward)
-		item.pledge_values=decoded_pledge_values
-		item.pledge_rewards=decoded_pledge_rewards
-		item.pledge=zip(item.pledge_values,item.pledge_rewards)
+		# decoded_pledge_values=json.loads(item.pledge_value)
+		# decoded_pledge_rewards=json.loads(item.pledge_reward)
+		# item.pledge_values=decoded_pledge_values
+		# item.pledge_rewards=decoded_pledge_rewards
+		# item.pledge=zip(item.pledge_values,item.pledge_rewards)
 		pledgers=Pledger.objects.filter(project_id=item.project_id)
 		for row in pledgers:
 			if row.pledger==request.user:

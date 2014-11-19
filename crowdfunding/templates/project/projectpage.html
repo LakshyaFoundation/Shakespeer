@@ -75,19 +75,6 @@
                 </div>
                 <hr>
                 
-                <div class="container">
-                    {%for pledge_value,reward in item.pledge%}
-                    <div class="col-md-3 thumbnail">
-                        <h3>Pledge {{forloop.counter}}</h3>
-                        <p class="note">{{reward}}
-                            <br>
-                            <span class="fa fa-inr"></span>{{pledge_value}}</p>
-                    </div>{%endfor%}
-                    
-                    <div class="campaign-content">
-                    <!-- <p>hello</p> -->
-                    </div>
-                </div>
                 <!-- end container -->
                 <hr>
                 <div class="container">
@@ -170,12 +157,13 @@
                             <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_pledge" id="pledge" style="display:none;">{%csrf_token%}
                                 <div class="form-group">
                                     <input type="hidden" value="{{item.project_id}}" name="pid">
-                                    <select name="amount" class="form-control">
+                                    <input type="number" name="amount">
+                                    <!-- <select name="amount" class="form-control">
                                         <option value="-1">Select pledge amount</option>
                                         {%for a,b in item.pledge%}
                                         <option value="{{a}}">{{a}}</option>
                                         {%endfor%}
-                                    </select>
+                                    </select> -->
                                     <input type="submit" value="Submit">
                                 </div>
                             </form>
