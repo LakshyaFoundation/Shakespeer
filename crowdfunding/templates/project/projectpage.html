@@ -173,17 +173,13 @@
                         </div>
                     </div>
                     {%elif item.is_pledger%} <center><h4>You have already pledged!!</h4></center>
+                    
                     <div class="big_wrapper">
                         <div class="wrapper center">
                             <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/update_pledge" id="editpledge" style="display:none;">{%csrf_token%}
                                 <div class="form-group">
                                     <input type="hidden" value="{{item.project_id}}" name="pid">
-                                    <select name="amount" class="form-control">
-                                        <option value="-1">Select pledge amount</option>
-                                        {%for a,b in item.pledge%}
-                                        <option value="{{a}}">{{a}}</option>
-                                        {%endfor%}
-                                    </select>
+                                    <input type="number" name="amount" value={{ user.amount_pledged }}>
                                     <input type="submit" value="Submit">
                                 </div>
                             </form>

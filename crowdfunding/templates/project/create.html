@@ -117,14 +117,14 @@
                 <div class="form-group">
                     <label class="control-label" for="submit"></label>
                     <div class="controls">
-                        <input type="button" id="btnSubmit" name="btnSubmit" class="btn btn-success" value="Submit" onclick="form_submit();">
+                        <input type="button" id="btnSubmit" name="btnSubmit" class="btn btn-success" value="Submit" onclick="submit();">
                     </div>
                 </div>
 
                 </fieldset>
             </form>
         </div>
-        <!--script>
+        <script>
         // function change(item) {
         //     var k = item;
         //     var len = ~~(k.value);
@@ -141,34 +141,12 @@
         //     $('#pledge_options').append(cont);
         //     $('#pledge_options').show();
         // }
-        // function form_submit(){
-        //     var t=document.getElementById('project_form');
-        //     var k=(document.getElementById('num_of_options').value);
-        //     k=~~k;
-        //     $('#number_of_options').val(k);
-        //     // document.getElementById('number_of_options').value=k;
-        //     alert($('#number_of_options').val());
-        //     var pledge_value="[";
-        //     var pledge_reward="[";
-        //     for (var i = 0; i < k; i++) {
-        //         if(i!=k-1){
-        //         pledge_value+=(document.getElementById('pledge'+(i+1)).value+',');
-        //         pledge_reward+=('"'+document.getElementById('reward'+(i+1)).value+'",');
-        //         }
-        //         else{
-        //          pledge_value+=(document.getElementById('pledge'+(i+1)).value);
-        //          pledge_reward+=('"'+document.getElementById('reward'+(i+1)).value+'"');   
-        //         }
-        //     };
-        //     pledge_value+="]";
-        //     pledge_reward+="]";
-        //     console.log(pledge_value);
-        //     console.log(pledge_reward);
-        //     document.getElementById('pledge_value').value=pledge_value;            
-        //     document.getElementById('pledge_reward').value=pledge_reward;
-        //     document.getElementById('project_form').submit();
-        // }
-        // </script> -->
+        function form_submit(){
+            var t=document.getElementById('project_form');
+            document.getElementById('project_form').submit();
+        }
+         
+        </script> 
         {%else%}
         <div class="jumbotron">
             <p class="lead">You must be logged in to create a project.</p>
