@@ -184,3 +184,25 @@ def save_project_update(request):
 			update.save()
 			messages.info(request,'Project Update has been successfully added')
     	return HttpResponseRedirect('/project')
+
+def home_page (request):
+	title='Index'
+	current_page='index'
+	current_date=timezone.make_aware(datetime.datetime.now(),timezone.get_default_timezone())
+	projects=Project.objects.all().select_related()
+	for item in projects:
+		pledger=Pledger.objects.filter(project_id=item.project_id ).aggregate(Sum('amount_pledged'))
+		for key,value in pledger.iteritems():
+			if not value is None:
+				item.percent=int(100*(float(value)/float(item.money_req)))
+				item.amount_pledged=value
+			else:
+				item.percent=0
+				item.amount_pledged=0
+		diff=current_date-item.date
+		if item.days_req-diff.days>0:
+			item.days_left=item.days_req-diff.days
+		else:
+			item.days_elapsed=diff.days-item.days_req
+	category=Project.objects.values_list('project_use', flat=True).distinct()
+	return render(request,'index.html',{'title':title,'current_page':current_page,'project':projects,'category':category})

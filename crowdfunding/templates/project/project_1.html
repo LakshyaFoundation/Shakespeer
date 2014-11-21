@@ -3,11 +3,11 @@
 {% block content %}
 {%load static %}
 <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap-theme.min.css"> -->
-<link rel="stylesheet" href="{{STATIC_URL}}css/projects.css">
+<!--link rel="stylesheet" href="{{STATIC_URL}}css/projects.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/font_awesome.min.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
 <link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
-<link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
+<link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css"-->
 
 <div class="container-fluid">
   <div class="row-fluid">
@@ -30,9 +30,9 @@
 <div class="container">
   <div class="row">
     {% for item in project %}
-      <div class="col-xs-18 col-sm-6 col-md-3" style="width:30%">
+      <div class="col-xs-18 col-sm-6 col-md-3" style="width:33%">
           <div class="thumbnail">
-            <a href="{{BASE_URL}}/project/show/{{item.project_id}}" style="text-decoration:true;"> <img src="{{BASE_URL}}/media/{{ item.photo }}" alt="{{item.name}}" style="width:auto; height: auto; max-height:200px"></a>
+            <a href="{{BASE_URL}}/project/show/{{item.project_id}}" style="text-decoration:true;"> <img src="{{BASE_URL}}/media/{{ item.photo }}" alt="{{item.name}}" style="height: 200px; width:auto;"></a>
               <div class="caption" style="line-height:1.3;">
                 <h5><b><a href="{{BASE_URL}}/project/show/{{item.project_id}}">{{item.name}}</a></b></h5> 
                 <p><a href="{{BASE_URL}}/profile/{{item.user_id}}" style="color:#aaa;text-decoration:none;">By {{item.user}}</a></p>
