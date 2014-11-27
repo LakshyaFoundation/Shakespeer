@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from main.models import IntegerRangeField
 # Create your models here.
 
 class Project(models.Model):
@@ -7,8 +8,8 @@ class Project(models.Model):
 	"""docstring for Project"""
 	name=models.CharField(max_length=200)
 	desc=models.CharField(max_length=400)
-	money_req=models.IntegerField(default=0)
-	days_req=models.IntegerField(default=0)
+	money_req=IntegerRangeField(default=0,min_value=20000,max_value=200000)
+	days_req=IntegerRangeField(default=0,min_value=7,max_value=60)
 	photo=models.ImageField(upload_to='images/')
 	video_link=models.URLField(max_length=1000)
 	details=models.TextField(max_length=4000)
