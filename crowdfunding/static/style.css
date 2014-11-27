@@ -27,12 +27,13 @@
     font-weight: bold;
     font-style: bold
 }
-/*body {
-    font-family: "Proxima";
+html, body {
+    height: 100%;
+    /*font-family: "Proxima";
     font-size: 15px;
     color: #545454;
-    line-height: 21px
-}*/
+    line-height: 21px*/
+}
 a {
     outline: none !important
 }
@@ -2974,4 +2975,85 @@ h3.note, .note, .shortnote {
     width:auto;
     height: auto; 
     max-height:400px
+}
+
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+.row > .col-xs-12 .col-md-12 {
+  margin-top: 2px;
+}
+#facebook-button {
+  width: 300px;
+  padding: 5px;
+  /*background-color:#44619D;*/
+}
+#googleplus-button {
+  /*background-color: #D73D32;*/
+  /*background-image: url(../img/google_signin_Long_base.png);*/
+  padding: 5px;
+  width: 300px;
+}
+#twitter-button {
+  background-color: #55ACEE;
+  border:#55ACEE;
+}
+#git-button {
+  background-color: #55ACEE;
+  border:#55ACEE;
+}
+#linkedin-button {
+  background-color: #55ACEE;
+  border:#55ACEE;
+}
+
+#login_main {
+  width:700px;
+  margin:0 auto;
+}
+
+#social_login{
+  float:left;
+  width:330px;
+  padding:0px;
+  border-right: solid 1px #e3e3e3;
+}
+
+#manual_login{
+  float:right;
+  width:350px;
+}
+
+#login_button{
+  float: none;    
+  margin:0 auto;
+  display:block;
+}
+
+#login_page_hyperlink_text{
+  font-size: 12pt;
+  padding: 10px;
+  text-decoration: underline;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -200px;
+}
+
+#push{
+        height: 200px;
+}
+.panel-footer{
+    /*height: 200px;*/
 }
