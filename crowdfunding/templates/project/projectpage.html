@@ -1,182 +1,60 @@
 {%extends "project/header.html"%} {%block content%}
-
-<!-- <link rel="stylesheet" href="{{STATIC_URL}}css/project-post.css"> -->
-<!--link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
-
-<link rel="stylesheet" href="{{STATIC_URL}}css/kickstarter.css">
-<link rel="stylesheet" href="{{STATIC_URL}}css/facebookimages.css">
-<link rel="stylesheet" href="{{STATIC_URL}}css/animate.min.css">
-<link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"-->
-<!--[if lt IE 9]>
-    <script src="{{STATIC_URL}}js/html5shiv.js"></script>
-    <script src="{{STATIC_URL}}js/respond.min.js"></script>
-    <![endif]-->
 <div class="container-fluid">
-
     <div class="row-fluid">
-        <div class="col-md-12" style="padding-top:65px;">
-
-            {%if project%}{%for item in project%}
-
-            <div class="main">
-                <div class="wrapper clearfix">
-
-                    <div class="col-md-6 pull-left">
-                        <div class="col-md-6">
-                            <img src="{{BASE_URL}}/media/{{ item.photo }}" alt="{{item.name}}">
-                        </div>
-                        <div class="col-md-6">
-                            <h4 style="line-height:1.4em;font-weight:300;">{{item.name}}</h4>
-                        </div>
-                        <div id="backing">
-
-                            <ul>
-                                <li class="stats" id="backers">
-                                    {{item.backers}}
-                                    <span>backers</span>
-                                </li>
-                                <li class="stats">
-                                    {{item.amount_pledged}} <span style="display:inline;">of</span>
-                                    <span>&#8377;{{item.money_req}}</span>
-                                </li>
-
-                                <li class="stats" id="days">
-                                    {%if item.days_left%}{{item.days_left}}{%elif item.days_elapsed%}{{item.days_elapsed}}{%endif%}
-                                    <span>days left</span>
-                                </li>
-                            </ul>
-                            <!-- 
-                    <div id='progress_bg' class='small'>
-                        <div id='progress' class='' style='width: {{item.percent}}%;'>{{item.percent}}% funded
-                        </div>
-                    </div> -->
-
-                            <div class="progress" style="height:12px;">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{item.percent}}%;">
-                                    <span class="sr-only">{{item.percent}}% Complete</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12" style="margin-top:2rem;">
-                                <h4>Project Updates</h4>
-                                <p class="note">{{item.update}}.</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <object width="512" height="380" data="{{item.video_link}}" type="application/x-shockwave-flash" style="z-index:-10000;"><param name="src" value="{{item.video_link}}" /></object>
+    {%if project%}{%for item in project%}
+        <div class="col-md-12"><h1 style="text-align:center">{{item.name}}</h1></div>
+        <div class="col-md-7">
+            <object width="100%" height="400px" data="{{item.video_link}}" type="application/x-shockwave-flash" style="z-index:-10000;"><param name="src" value="{{item.video_link}}" /><param name="quality" value="high" /></object>
+        </div>
+        <div class="col-md-5">
+            <div class="row-fluid">            
+                {{item.desc}}
+            </div><br/>
+            <div class="row-fluid">            
+                {{item.details}}
+            </div><br/>
+            <div class="row-fluid">
+                <div class="progress" style="height:12px;">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{item.percent}}%;">
+                    <!--span class="sr-only">{{item.percent}}% Complete</span-->
                     </div>
                 </div>
-                <hr>
-                <div class="container">
-                    <h3>Description</h3>
-                    <article>{{item.details}}</article>
-                </div>
-                <hr>
-                
-                <!-- end container -->
-                <hr>
-                <div class="container">
-                    <div class="col-md-12">
-                        <h3>Risks &amp; Challenges</h3>
-                        <article class="note">
-                            {{item.risks_and_challenges}}
-                        </article>
-                    </div>
-                </div>
-                <hr>
-                <div class="home-discover-friends" style="display:none;">
-                    <div class="container_12">
-                        <div class="col-md-12">
-                            <h3>Pledged By {{item.backers}} people</h3>
-                            <div class="row-friends">
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&amp;oe=54677AEC&amp;__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&amp;oe=54618C6F&amp;__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&amp;oe=545FD6D2&amp;__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&amp;oe=545EAC17&amp;__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME">
-                                </a>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="row-friends">
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c13.13.166.166/1157713_565985350125529_1499817454_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/t1.0-1/c80.0.320.320/p320x320/10603529_657792957649896_781871579573765995_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.33.320.320/p320x320/1919660_10201544053682510_5444672139923081202_n.jpg?oh=25b1807f05617dc2a1f52ca04a645171&amp;oe=54677AEC&amp;__gda__=1416767534_0406410024d7ce116738a472b0408b70" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/t1.0-1/c0.0.320.320/p320x320/10584020_704332159632114_4800759289943765527_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10524317_660078700753810_8625518764038768982_n.jpg?oh=4ccd4410bbe39bd5255346c94bbc41c9&amp;oe=54618C6F&amp;__gda__=1415709432_edf6b2c468449c9a5faed4114a0aa905" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c101.4.631.631/s320x320/10527453_10203184102660606_1512566411827074532_n.jpg" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p320x320/10462708_795488600491868_2193721261966280490_n.jpg?oh=728c293102a042e2bb8760e29f0f7aab&amp;oe=545FD6D2&amp;__gda__=1416619193_238efbfb326ba7a6d8e547d8bf6e1d3f" alt="$USER_NAME">
-                                </a>
-                                <a class="thumb-avatar" href="#">
-                                    <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c0.0.320.320/p320x320/10478440_807780422616560_6812708197801044433_n.jpg?oh=c7fe0341bcf6aadbaeaa2ac501a02da3&amp;oe=545EAC17&amp;__gda__=1416752256_9d87e92611834594e612753678161357" alt="$USER_NAME">
-                                </a>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container" >
+            </div>
+            <div class="row-fluid" style="font-size: 11px">
+                    <div class="col-md-4 col-xs-4" style="margin-top:-20px;"><p><b>{{item.percent}}%</b> funded</p></div>
+                    <div class="col-md-4 col-xs-4" style="margin-top:-20px;"><p><b><i class="fa fa-rupee"></i>{{item.amount_pledged}}</b> of <i class="fa fa-rupee"></i>{{item.money_req}}</p></div>
+                    <div class="col-md-4 col-xs-4" style="margin-top:-20px; text-align: right;"><p><b>{% if item.days_left %}{{item.days_left}}</b> days to go{% elif item.days_elapsed %}{{item.days_elapsed}} days elapsed{% endif%}
+                    </p></div>
+            </div>       
+            <div class="col-md-12 col-xs-12">
+            <div class="row-fluid" style="text-align: center; padding-top: 30px;">
+                {{item.backers}} backers
+            </div>
+            </div>
+        
+<!-- Pledge region -->
+                <div class="col-md-12 col-xs-12">
+                <div class="row-fluid">
                     {% if user.is_authenticated and not item.is_pledger and not item.is_uploader%}
 
                     <div class="big_wrapper">
-                        <div class="wrapper center" id="middle_reserve" style="">
+                        <div class="wrapper center" id="middle_reserve" style=""-->
                             <!-- Button trigger modal -->
                             <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/save_pledge" id="pledge" style="display:none;">{%csrf_token%}
                                 <div class="form-group">
                                     <input type="hidden" value="{{item.project_id}}" name="pid">
                                     <input type="number" name="amount">
-                                    <!-- <select name="amount" class="form-control">
-                                        <option value="-1">Select pledge amount</option>
-                                        {%for a,b in item.pledge%}
-                                        <option value="{{a}}">{{a}}</option>
-                                        {%endfor%}
-                                    </select> -->
                                     <input type="submit" value="Submit">
                                 </div>
                             </form>
                             <button class="blue_button reserve" onclick="$('#pledge').show();">
-                                Pledge for this project
+                                Back this project
                             </button>
                         </div>
                     </div>
-                    {%elif item.is_pledger%} <center><h4>You have already pledged!!</h4></center>
+                    {%elif item.is_pledger%} <center><h4>You pledged <i class="fa fa-rupee"></i>{{ pledger.amount_pledged }} </h4></center>
                     
-                    <div class="big_wrapper">
+                    <div class="big_wrapper" style="margin: 0 auto;">
                         <div class="wrapper center">
                             <form class="form-horizontal" method="POST" action="{{BASE_URL}}/project/update_pledge" id="editpledge" style="display:none;">{%csrf_token%}
                                 <div class="form-group">
@@ -186,29 +64,24 @@
                                 </div>
                             </form>
                             <button class="green_button reserve" onclick="$('#editpledge').show();">
-                                Edit Your Pledge
+                                Edit Pledge Amount
                             </button>
                         </div>
                     </div>
                     {%elif item.is_uploader%}
-                    <center><h4>Uploader cannot pledge their own projects!</h4></center>
-                    {% endif %}{%endfor%}{% endif %}
+                    <center><h4>Sorry, Uploader cannot back own project</h4></center>
+                    {% endif %}
                 </div>
-            </div>
-            <!-- end main -->
-        </div>
-    </div>
+                </div>
+
+<!-- Pledge region ends here -->
+
+
 
 </div>
-
-
-<script src="{{STATIC_URL}}js/jquery-sizzle.js"></script>
-<script src="{{STATIC_URL}}js/isotope.pkgd.min.js"></script>
-<script src="{{STATIC_URL}}js/imagesloaded.min.js"></script>
-<script src="{{STATIC_URL}}js/jquery.scrollTo.min.js"></script>
-<script src="{{STATIC_URL}}js/jquery.nav.min.js"></script>
-<script src="{{STATIC_URL}}js/jquery.appear.min.js"></script>
-<script src="{{STATIC_URL}}js/twitterFetcher.min.js"></script>
-<script src="{{STATIC_URL}}js/script.js"></script>
+{%endfor%}{% endif %}
+    
+    </div>
+</div>
 
 {%endblock%}

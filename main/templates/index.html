@@ -1,43 +1,12 @@
 {% extends 'project/header.html'%}
 {% block content %}
-
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<!--<html class="no-js" lang="en"--> <!--<![endif]-->
-<!--head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Lakshya Crowd Funding Website</title>
-	<meta name="description" content="This is the internal crowd funding platform for increasing the number of students entrepreneurs and research inititatives on campus using crowd funding so that projects can be crowdfunded.">
-	<meta name="keywords" content="Crowd Funding, kickstarter, laskhya foundation">
-	<meta name="viewport" content="width=1160">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
-		<link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
-	
-	<link href="{{STATIC_URL}}facebookimages.css" media="all" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="{{STATIC_URL}}css/projects.css">
-	<link rel="stylesheet" href="{{STATIC_URL}}css/font_awesome.min.css">
-	<link rel="stylesheet" href="{{STATIC_URL}}css/font-awesome.min.css"-->
-	
-
-	<!--[if lte IE 9]><link href="static/ie.css" media="all" rel="stylesheet" type="text/css" /><![endif]>
-
-
-
-</head-->
 <!-- script to call slider function -->
 <script type="text/javascript">
 	$(document).ready(function(){
 	$("#slider").easySlider();
 	$(".title1").animate({opacity:1,marginLeft:"0px"},800);
 });
-
-
 </script>
 
 <!--body-->
@@ -54,7 +23,7 @@
 	</section>
 
 
-<!-- Listing out projects -->
+<!-- Listing out projects |truncatewords:5-->
 	<div class="phases" id="slider">
 	<h2>FEATURED PROJECTS</h2>
 		<ul>
@@ -69,7 +38,7 @@
 						
 							<p><a href="{{BASE_URL}}/profile/{{item.user_id}}" style="color:#aaa;text-decoration:none;">By {{item.user}}</a></p>
 
-							<p style="font-size:13px;">{{item.desc|truncatewords:5}}...<a href="{{BASE_URL}}/project/show/{{item.project_id}}" style="text-decoration:true;">Show more</a></p>
+							<p style="font-size:13px;">{{item.desc}}</p>
 						
 							<p><a href="#" style="color:#ccc;"><i class="fa fa-map-marker"></i><span> Warangal</span></a></p>
 

@@ -8,55 +8,20 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Project'
-        db.create_table(u'project_project', (
-            ('project_id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('desc', self.gf('django.db.models.fields.CharField')(max_length=400)),
-            ('money_req', self.gf('django.db.models.fields.IntegerField')(default=1)),
-            ('days_req', self.gf('django.db.models.fields.IntegerField')(default=1)),
-            ('photo', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('video_link', self.gf('django.db.models.fields.URLField')(max_length=1000)),
-            ('details', self.gf('django.db.models.fields.TextField')(max_length=4000)),
-            ('project_use', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('risks_and_challenges', self.gf('django.db.models.fields.TextField')(max_length=4000)),
-            ('number_of_options', self.gf('django.db.models.fields.IntegerField')(default=1)),
-            ('pledge_value', self.gf('django.db.models.fields.TextField')(max_length=1000)),
-            ('pledge_reward', self.gf('django.db.models.fields.TextField')(max_length=8000)),
-            ('date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-        ))
-        db.send_create_signal(u'project', ['Project'])
 
-        # Adding model 'Pledger'
-        db.create_table(u'project_pledger', (
-            ('pid', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('pledger', self.gf('django.db.models.fields.related.ForeignKey')(related_name='pledger_user_id', to=orm['auth.User'])),
-            ('project', self.gf('django.db.models.fields.related.ForeignKey')(related_name='pledge_project_id', to=orm['project.Project'])),
-            ('amount_pledged', self.gf('django.db.models.fields.IntegerField')(default=0)),
-        ))
-        db.send_create_signal(u'project', ['Pledger'])
+        # Changing field 'Project.days_req'
+        db.alter_column(u'project_project', 'days_req', self.gf('main.models.IntegerRangeField')())
 
-        # Adding model 'ProjectUpdate'
-        db.create_table(u'project_projectupdate', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('content', self.gf('django.db.models.fields.TextField')(max_length=4000)),
-            ('date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('project_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['project.Project'])),
-        ))
-        db.send_create_signal(u'project', ['ProjectUpdate'])
-
+        # Changing field 'Project.money_req'
+        db.alter_column(u'project_project', 'money_req', self.gf('main.models.IntegerRangeField')())
 
     def backwards(self, orm):
-        # Deleting model 'Project'
-        db.delete_table(u'project_project')
 
-        # Deleting model 'Pledger'
-        db.delete_table(u'project_pledger')
+        # Changing field 'Project.days_req'
+        db.alter_column(u'project_project', 'days_req', self.gf('django.db.models.fields.IntegerField')())
 
-        # Deleting model 'ProjectUpdate'
-        db.delete_table(u'project_projectupdate')
-
+        # Changing field 'Project.money_req'
+        db.alter_column(u'project_project', 'money_req', self.gf('django.db.models.fields.IntegerField')())
 
     models = {
         u'auth.group': {
@@ -105,10 +70,10 @@ class Migration(SchemaMigration):
         u'project.project': {
             'Meta': {'object_name': 'Project'},
             'date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'days_req': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
+            'days_req': ('main.models.IntegerRangeField', [], {'default': '0'}),
             'desc': ('django.db.models.fields.CharField', [], {'max_length': '400'}),
             'details': ('django.db.models.fields.TextField', [], {'max_length': '4000'}),
-            'money_req': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
+            'money_req': ('main.models.IntegerRangeField', [], {'default': '0'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'number_of_options': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
             'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),

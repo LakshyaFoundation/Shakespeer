@@ -3048,12 +3048,135 @@ h3.note, .note, .shortnote {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -200px;
+    margin: 50px auto -200px;
 }
 
 #push{
         height: 200px;
 }
+
 .panel-footer{
     /*height: 200px;*/
 }
+
+
+/* Kickstarter CSS starts here */
+
+.clearfix:before,.clearfix:after{
+    content:"";
+    display:table
+}
+
+.clearfix:after{
+    clear:both
+}
+
+.clearfix{
+    zoom:1
+}
+
+.wrapper{
+    width:935px;
+    margin:0 auto
+}
+
+#backing{
+    float:left;
+    width:383px;
+    margin:20px 0 0 40px
+}
+
+#backing #backers{
+    border-left:none;
+    padding-left:0
+}
+
+#backing #backers ul{
+    float:left
+}
+
+#backing #days{
+    border-right:none;
+    padding-right:0
+}
+
+#backing ul{
+    text-align:center
+}
+
+#backing .stats{
+    margin:0 auto;
+    color:#3f3f3f;
+    font-size:24px;
+    display:block;
+    display:inline-block;
+    font-family:"Helvetica Neue","Helvetica","Arial";
+    border-right:1px solid #cbcbcb;
+    padding-right:26px;
+    padding-left:26px;
+    text-align:left
+}
+
+#backing .stats span{
+    color:#868686;
+    font-size:18px;
+    margin-top:5px;
+    display:block;
+    font-family:"Helvetica Neue","Helvetica","Arial"
+}
+
+#progress_bg{
+    margin-top:20px;
+    float:left;
+    height:40px;
+    -moz-box-shadow:0 1px 1px rgba(0,0,0,0.41);
+    -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.41);
+    box-shadow:0 1px 1px rgba(0,0,0,0.41);
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    border-radius:30px;
+    width:383px;
+    background:#dbdbdb
+}
+
+#progress_bg #progress{
+    height:40px;
+    -moz-box-shadow:0 1px 1px rgba(0,0,0,0.59);
+    -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.59);
+    box-shadow:0 1px 1px rgba(0,0,0,0.59);
+    background-image:url(data:image/svg+xml;
+    base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxMzkyZGMiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjlkZjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogICA8L2xpbmVhckdyYWRpZW50PgoKPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
+    background-image:-moz-linear-gradient(90deg, #1392dc 0%, #069df4 100%);
+    background-image:-o-linear-gradient(90deg, #1392dc 0%, #069df4 100%);
+    background-image:-webkit-linear-gradient(90deg, #1392dc 0%, #069df4 100%);
+    background-image:linear-gradient(90deg, #1392dc 0%, #069df4 100%);
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    border-radius:30px;
+    min-width:2%;
+    width:100%;
+    max-width:100%;
+    display:inline-block
+}
+
+#progress_bg #progress_text{
+    margin:0 auto;
+    width:100%;
+    font-size:14pt;
+    display:inline-block;
+    color:white;
+    text-shadow:0 -1px 1px rgba(0,0,0,0.37);
+    text-align:center;
+    position:relative;
+    top:-35px
+}
+
+.small{
+    height:20px !important
+}
+
+.small #progress{
+    height:20px !important
+}
+
+/* Kickstarter CSS ENDS here */
