@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
   <title>{{title}}</title>
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600">
   <script src="{{STATIC_URL}}js/jquery.min.js"></script>
@@ -9,8 +15,9 @@
   <link rel="stylesheet" href="{{STATIC_URL}}css/animate.min.css">
   <!--link rel="stylesheet" href="{{STATIC_URL}}css/kickstarter.css"-->
   <link rel="stylesheet" href="{{STATIC_URL}}css/project-post.css">
-    <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
   <link href="{{STATIC_URL}}style.css" media="all" rel="stylesheet" type="text/css" />
+
 
   
 </head>
@@ -30,7 +37,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
             <!--li ><a href="#">Home</a></li-->
-            <!--li {% if current_page == "projects" %}class="active"{% endif %}--> <li><a href="{{BASE_URL}}/project" >Explore Projects</a></li>
+            <!--li {% if current_page == "projects" %}class="active"{% endif %}--> 
+            <li><a href="{{BASE_URL}}/project" >Explore Projects</a></li>
             <!--li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li-->
             {% if user.is_authenticated %}

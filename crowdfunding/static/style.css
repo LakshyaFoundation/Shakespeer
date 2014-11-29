@@ -29,6 +29,8 @@
 }
 html, body {
     height: 100%;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-size: 12px;
     /*font-family: "Proxima";
     font-size: 15px;
     color: #545454;
@@ -3058,7 +3060,7 @@ h3.note, .note, .shortnote {
 .panel-footer{
     /*height: 200px;*/
 }
-
+.panel-footer a:focus { color: #fff }
 
 /* Kickstarter CSS starts here */
 
@@ -3180,3 +3182,42 @@ h3.note, .note, .shortnote {
 }
 
 /* Kickstarter CSS ENDS here */
+
+/* Navbar */
+#navbar-top { min-height: 51px }
+.navbar-default {
+  margin-bottom: 0;
+  background-color: #fff;
+  border-top: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+.navbar-default .navbar-brand {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #0093cf;
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle { border-color: transparent }
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus { background-color: transparent }
+.navbar-default .navbar-toggle:hover .icon-bar { background-color: #333 }
+.navbar-default.affix {
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  border-bottom-color: transparent;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+     -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+          box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+}
+/* Navbar ends */
